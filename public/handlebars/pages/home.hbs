@@ -1,0 +1,15 @@
+<h1>
+  {{#if blog }}
+    {{blog/title}}
+  {{else}}
+    No blog :(
+  {{/if}}
+</h1>
+
+<p>
+  {{{ blog/body }}}
+  <p>{{ht "blog.by"blog/title blog/author/name }}</p>
+</p>
+
+
+
