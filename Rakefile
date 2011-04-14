@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-TestProj::Application.load_tasks
+CrystalGravy::Application.load_tasks
