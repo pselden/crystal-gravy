@@ -2,7 +2,8 @@ require 'page_data'
 require 'handlebars/handlebars_rails'
 
 class PageDataResponder < ActionController::Responder
-  HANDLEBARS_FOLDER = "handlebars"
+  TEMPLATE_FOLDER = "handlebars"
+  TEMPLATE_EXT = "hbs"
 
   def initialize(controller, resources, options={})
     super
@@ -39,7 +40,7 @@ class PageDataResponder < ActionController::Responder
 
     def template
       template = controller.template || "#{controller.controller_name}/#{controller.action_name}"
-      compute_path(template, "/" + HANDLEBARS_FOLDER, 'hbs')
+      compute_path(template, "/" + TEMPLATE_FOLDER, TEMPLATE_EXT)
     end
 
     def stylesheets
@@ -70,10 +71,12 @@ class PageDataResponder < ActionController::Responder
     # returns the path to a partial (without the assets directory)
     # example: compute_partial_path "shared/home" would return "
     def compute_partial_path partial_name
-        directory = File.dirname partial_name if partial_name.include?("/")
-        directory ||= ''
-        directory = File.join(controller.controller_name, directory) if directory.starts_with?("/") || directory == ''
-        file_name = "_#{File.basename partial_name}.hbs"
-        File.join(HANDLEBARS_FOLDER, directory, file_name)
+       if partial_name.include?("/")
+         prefix = File.dirname partial_name
+       else
+         prefix = controller.controller_name
+       end
+        file_name = "_#{File.basename partial_name}.#{TEMPLATE_EXT}"
+        File.join(TEMPLATE_FOLDER, prefix, file_name)
     end
 end

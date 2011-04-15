@@ -6,13 +6,6 @@ module OmniAuth
   end
 end
 
-module OpenSSL
-  module SSL
-    remove_const :VERIFY_PEER
-  end
-end
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter, 'H3BL8dMsgwUVb84wiiYcw', 'fsYfPBbuLH3NhkBku5co7cOIZY38b5WXUkeoOw7ka4'
   provider :facebook, '203396236349568', '307de383136a9e391ef546d5963a8c69', :display => 'popup'
