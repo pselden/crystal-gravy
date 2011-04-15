@@ -4,26 +4,50 @@
   <title>TestProj</title>
   <%= csrf_meta_tag %>
   <%= page_stylesheets %>
+  <%= stylesheet_link_tag :all %>
 </head>
 <body>
-    <header>
-    <% if current_user %>
-        Welcome <%= current_user.name %>! (<%= current_user.provider.capitalize %>)
-        <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
-    <% else %>
-        <%= link_to_sign_in :facebook %>
-        <%= link_to_sign_in :myspace %>
-        <%= link_to_sign_in :twitter %>
-        <%= link_to_sign_in :google %>
-    <% end %>
+
+    <header id="header">
+      <h1>Zipper</h1>
     </header>
-    <div id="main">
-        <%= yield %>
+
+    <div id="wrap">
+
+         <section id="leftRail">
+            <nav>
+                <% if current_user %>
+                    <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
+                <% else %>
+                    <%= link_to_sign_in :facebook %>
+                    <%= link_to_sign_in :myspace %>
+                    <%= link_to_sign_in :twitter %>
+                    <%= link_to_sign_in :google %>
+                <% end %>
+            </nav>
+        </section>
+
+        <section id="container" class='clearfix'>
+		    <section id="rightRail">
+			    <div class='module'>
+                    <h3>Example Module</h3>
+                </div>
+             </section>
+            <section id="main">
+
+              <% if current_user %>
+              <header>
+                <img src='http://placehold.it/50x50' />
+                 <h2><%= current_user.name %> (<%= current_user.provider.capitalize %>)</h2>
+              </header>
+              <% end %>
+
+              <%= yield %>
+            </section>
+         </section>
+
+
     </div>
-    <footer>
-      <a href="/">Home</a>
-      <a href="/pages/test">Test</a>
-    </footer>
 
     <%= javascript_include_translations %>
     <script type="text/javascript">
