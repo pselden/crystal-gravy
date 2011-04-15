@@ -1,4 +1,9 @@
 CrystalGravy::Application.routes.draw do
+  resources :playlists
+  get "playlists/new"
+
+  get "songs/new"
+
   get "pages/home"
   get "pages/test"
 
