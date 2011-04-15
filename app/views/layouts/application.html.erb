@@ -37,7 +37,7 @@
 
               <% if current_user %>
               <header>
-                <img src='http://placehold.it/50x50' />
+                 <%= image_tag(current_user.image || 'http://placehold.it/50x50', :height => 50, :width => 50) %>
                  <h2><%= current_user.name %> (<%= current_user.provider.capitalize %>)</h2>
               </header>
               <% end %>
