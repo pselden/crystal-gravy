@@ -8,7 +8,7 @@
 <body>
     <header>
     <% if current_user %>
-        Welcome <%= current_user.name %>! (<%= current_user.provider.capitalize %>)
+        Welcome <%= current_user.name %>! (<%= current_user.provider.capitalize %>)<%= image_tag(current_user.image || 'http://placehold.it/25x25', :height => 25, :width => 25) %>
         <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
     <% else %>
         <%= link_to_sign_in :facebook %>
