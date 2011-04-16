@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def link_to_sign_in provider
     link_to provider.to_s.capitalize, "/auth/#{provider}", :class => "auth-popup", :"data-width" => 775, :"data-height" => 450
   end
@@ -26,5 +27,14 @@ module ApplicationHelper
 
   def javascript_include_translations
     javascript_include_tag ["i18n", "translations/#{I18n.locale.to_s}.js"]
+  end
+  
+  def title 
+	site_title = "Zipper"
+	if  @title.nil?
+		site_title
+	else
+		"#{site_title } - #{@title}"
+	end
   end
 end
