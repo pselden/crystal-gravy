@@ -25,7 +25,7 @@ strong { font-weight: bold; }
 .clearfix:after { visibility: hidden; display: block; content: " "; clear: both; height: 0; }
 .hide { display: none; }
 
-body { background: url(../images/noise.png) repeat #EEE; color: #444; font-family: Helvetica,Arial,sans-serif; font-size: 11px;  }
+body { background: #EEE; color: #444; font-family: Helvetica,Arial,sans-serif; font-size: 11px;  }
 button:before { content: attr(data-icon); font: 12px/0 'Pictos'; margin-right: 3px; }
 span.icon { font: 12px/0 'Pictos',sans-serif; margin-right: 3px; }
 a { color: #0077CC; text-decoration: none; }
