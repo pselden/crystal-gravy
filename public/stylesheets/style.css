@@ -27,7 +27,6 @@ strong { font-weight: bold; }
 
 body { background: #EEE; color: #444; font-family: Helvetica,Arial,sans-serif; font-size: 11px;  }
 button:before { content: attr(data-icon); font: 12px/0 'Pictos'; margin-right: 3px; }
-span.icon { font: 12px/0 'Pictos',sans-serif; margin-right: 3px; }
 a { color: #0077CC; text-decoration: none; }
 a:hover { color: #333; text-decoration: underline; }
 p { color: #666; line-height: 14px; }
