@@ -1,4 +1,7 @@
 CrystalGravy::Application.routes.draw do
+  
+ match "/users/:id" => "users#show"
+  
   resources :playlists
   get "playlists/new"
 
