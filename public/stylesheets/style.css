@@ -8,12 +8,12 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video { margin: 0; padding: 0;	border: 0; font-size: 100%;	font: inherit; vertical-align: baseline; }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section { display: block; }
 body { line-height: 1; }
 ol, ul { list-style: none; }
@@ -25,7 +25,7 @@ strong { font-weight: bold; }
 .clearfix:after { visibility: hidden; display: block; content: " "; clear: both; height: 0; }
 .hide { display: none; }
 
-body { background: #EEE; color: #444; font-family: Helvetica,Arial,sans-serif; font-size: 11px;  }
+body { background: #555; color: #444; font-family: Helvetica,Arial,sans-serif; font-size: 11px;  }
 button:before { content: attr(data-icon); font: 12px/0 'Pictos'; margin-right: 3px; }
 a { color: #0077CC; text-decoration: none; }
 a:hover { color: #333; text-decoration: underline; }
@@ -49,27 +49,26 @@ form > .right { text-align: right; }
 form > div > label { cursor: pointer; display: block; margin-bottom: 5px; font-weight: bold; }
 
 /* buttons */
-button, .button { cursor: pointer; padding: 4px 6px; background: #CCC; font-size: 11px; font-weight: bold; color: #444; border: 1px solid #AAA; border-bottom-color: #777; box-shadow: 0 1px 2px rgba(0,0,0,0.1); border-radius: 2px; 
+button, .button { cursor: pointer; padding: 4px 6px; background: #CCC; font-size: 11px; font-weight: bold; color: #444; border: 1px solid #AAA; border-bottom-color: #777; box-shadow: 0 1px 2px rgba(0,0,0,0.1); border-radius: 2px;
 	background: -moz-linear-gradient(#FFF, #E8E8E8); background: -webkit-linear-gradient(#FFF, #E8E8E8); }
 .button { display: inline-block; height: 14px; padding: 4px 9px; line-height: 14px; text-align: center; }
 button:hover, .button:hover { background: #FFF; background: -moz-linear-gradient(#FFF, #DDD); background: -webkit-linear-gradient(#FFF, #DDD); }
 button:active, .button:active { background: #DDD; }
-.primary { background: #7DAA29; border-color: #54770E; color: #fff; 
+.primary { background: #7DAA29; border-color: #54770E; color: #fff;
 	background: -moz-linear-gradient(#8DC427, #7DAA29); background: -webkit-linear-gradient(#8DC427, #7DAA29); }
 
 /* Grid */
 .grid { margin-right: -10px; }
 .grid > li { float: left; margin: 10px 10px 0 0; }
 
-/* PAGE */
-
 /* Header */
-#header { position: fixed; top: 0; width: 100%; background: #9178C4; color: #FFF;
-	background-image: -moz-linear-gradient(#9178C4, #7357AF); background-image: -webkit-linear-gradient(#9178C4, #7357AF); }
-#header > h1 { padding: 10px 20px; font-weight: bold; text-shadow: 0 1px 1px rgba(0,0,0,0.6); }	
+#header { position: fixed; top: 0; width: 100%; background: #DF4747; color: #FFF;
+	background-image: -moz-linear-gradient(#DF4747, #C73B3B); background-image: -webkit-linear-gradient(#DF4747, #C73B3B);
+        box-shadow: 0 -1px 1px rgba(255,255,255,0.2) inset; }
+#header > h1 { padding: 10px 20px; font-weight: bold; text-shadow: 0 1px 1px rgba(0,0,0,0.6); }
 
 /* Content Layout */
-#wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 2px rgba(0,0,0,0.2); }
+#wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px rgba(0,0,0,0.9); }
 #leftRail { float: left; width: 130px; padding: 10px; border-right: 1px solid #DDD; }
 #container { margin-left: 150px; }
 #rightRail { float: right; width: 250px; border-left: 1px solid #DDD; }
