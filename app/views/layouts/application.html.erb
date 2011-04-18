@@ -3,11 +3,13 @@
 <head>
   <title><%= title %></title>
   <%= csrf_meta_tag %>
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   <%= page_stylesheets %>
   <%= stylesheet_link_tag :all %>
 </head>
 <body>
-
     <header id="header">
       <h1>Zipper</h1>
 
