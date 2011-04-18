@@ -2,10 +2,9 @@ require 'page_data_responder'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include SessionsHelper
   before_filter :append_custom_view_paths, :export_i18n_messages, :set_locale
   attr_reader :template, :stylesheets, :javascripts
-
-  helper_method :current_user
 
   self.responder = PageDataResponder
   respond_to :html, :json, :pd
@@ -36,9 +35,5 @@ class ApplicationController < ActionController::Base
 
     def append_custom_view_paths
       append_view_path("#{Rails.root}/public/handlebars")
-    end
-
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
 end

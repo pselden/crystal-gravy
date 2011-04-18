@@ -16,11 +16,18 @@
       <div id="player">
           player
       </div>
-
-      <nav>
-        <a href="#">Login</a>
-        <a href="#" class='signup'>Signup</a>
-      </nav>
+	 
+	  <nav> 
+		  <% if !signed_in? %>
+			<a href="#">Login</a>
+			<a href="#" class='signup'>Signup</a>
+			<% else%>  
+			<a href="#" class='signout'>Sign Out</a>
+			<% end %> 
+	  </nav>
+	  
+	  
+	 
 
     </header>
 
