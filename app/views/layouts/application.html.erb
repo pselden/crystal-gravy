@@ -12,6 +12,23 @@
 <body>
     <header id="header">
       <h1>Zipper</h1>
+
+      <div id="player">
+          player
+      </div>
+
+	  <nav>
+		  <% if !signed_in? %>
+			<a href="#">Login</a>
+			<a href="#" class='signup'>Signup</a>
+			<% else%>
+			<a href="#" class='signout'>Sign Out</a>
+			<% end %>
+	  </nav>
+
+
+
+
     </header>
 
     <div id="wrap">
@@ -19,6 +36,8 @@
          <section id="leftRail">
             <nav>
                 <% if current_user %>
+                    <a href="#">Home</a>
+                    <a href="<%= user_path(session[:user_id]) %>">Profile</a>
                     <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
                 <% else %>
                     <%= link_to_sign_in :facebook %>

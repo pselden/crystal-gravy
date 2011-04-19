@@ -62,14 +62,19 @@ button:active, .button:active { background: #DDD; }
 .grid > li { float: left; margin: 10px 10px 0 0; }
 
 /* Header */
-#header { position: fixed; top: 0; width: 100%; background: #DF4747; color: #FFF;
+#header { padding: 10px 0; position: fixed; top: 0; width: 100%; line-height: 18px; background: #DF4747; color: #FFF;
 	background-image: -moz-linear-gradient(#DF4747, #C73B3B); background-image: -webkit-linear-gradient(#DF4747, #C73B3B);
         box-shadow: 0 -1px 1px rgba(255,255,255,0.2) inset; }
-#header > h1 { padding: 10px 20px; font-weight: bold; text-shadow: 0 1px 1px rgba(0,0,0,0.6); }
+#header > h1 { float: left; width: 120px; padding: 0 20px; font-weight: bold; text-shadow: 0 1px 1px rgba(0,0,0,0.6); }
+#player { float: left; margin-right: 250px; }
+#header > nav { float: right; line-height: 18px; width: 230px; padding: 0 20px; text-align: right; }
+#header > nav > a { color: #fff; }
+#header > nav > .signup { padding: 5px 12px; margin-left: 5px; border-radius: 14px; color: #FFF; background: #99BF46; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
+#header > nav > a:hover { text-decoration: none; }
 
 /* Content Layout */
-#wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px rgba(0,0,0,0.9); }
-#leftRail { float: left; width: 130px; padding: 10px; border-right: 1px solid #DDD; }
+#wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); }
+#leftRail { float: left; width: 150px; border-right: 1px solid #DDD; }
 #container { margin-left: 150px; }
 #rightRail { float: right; width: 250px; border-left: 1px solid #DDD; }
 #main { margin-right: 250px; border-right: 1px solid #DDD; border-left: 1px solid #DDD; }
@@ -102,8 +107,9 @@ button:active, .button:active { background: #DDD; }
 .songs > li a { color: #333; }
 
 /* Nav  */
-#leftRail a { display: block; padding: 5px 10px; margin-top: 5px; border-radius: 14px; color: #000; font-weight: bold; }
-#leftRail a:hover { background: #fff; color: #000; text-decoration: none; }
+#leftRail a { display: block; padding: 10px; border-top: 1px solid #DDD; color: #777; font-weight: bold; }
+#leftRail a:hover { color: #000; text-decoration: none; }
+#leftRail > nav > a:first-child { border: none; }
 
 
 
