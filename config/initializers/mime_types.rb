@@ -4,4 +4,5 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 
-Mime::Type.register "application/x-pagedata", :pd
+Mime::Type.register_alias "application/json", :pd
+Mime::Type.register "audio/ogg", :oga

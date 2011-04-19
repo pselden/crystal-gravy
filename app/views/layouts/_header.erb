@@ -1,0 +1,14 @@
+<header id="header">
+  <h1>Zipper</h1>
+  <div>
+    <% if current_user %>
+        Logged in as: <%= current_user.name %> (<%= current_user.provider.capitalize %>)
+        <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
+    <% else %>
+        <%= link_to_sign_in :facebook %>
+        <%= link_to_sign_in :myspace %>
+        <%= link_to_sign_in :twitter %>
+        <%= link_to_sign_in :google %>
+    <% end %>
+   </div>
+</header>

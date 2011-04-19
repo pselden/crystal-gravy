@@ -47,15 +47,13 @@
               <%= yield %>
             </section>
          </section>
-
-
     </div>
 
     <%= javascript_include_translations %>
     <script type="text/javascript">
       var currentLocale = '<%= I18n.locale %>';
     </script>
-    <%= javascript_include_tag ['jquery','rails', 'sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy','application'] %>
+    <%= javascript_include_tag 'jquery', 'rails', 'sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy','audio/jquery.jplayer', 'application' %>
     <%= page_javascripts %>
 </body>
 </html>
