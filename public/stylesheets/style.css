@@ -73,8 +73,8 @@ button:active, .button:active { background: #DDD; }
 #header > nav > a:hover { text-decoration: none; }
 
 /* Content Layout */
-#wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 10px rgba(0,0,0,0.9); }
-#leftRail { float: left; width: 130px; padding: 10px; border-right: 1px solid #DDD; }
+#wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); }
+#leftRail { float: left; width: 150px; border-right: 1px solid #DDD; }
 #container { margin-left: 150px; }
 #rightRail { float: right; width: 250px; border-left: 1px solid #DDD; }
 #main { margin-right: 250px; border-right: 1px solid #DDD; border-left: 1px solid #DDD; }
@@ -107,8 +107,9 @@ button:active, .button:active { background: #DDD; }
 .songs > li a { color: #333; }
 
 /* Nav  */
-#leftRail a { display: block; padding: 5px 10px; margin-top: 5px; border-radius: 14px; color: #000; font-weight: bold; }
-#leftRail a:hover { background: #fff; color: #000; text-decoration: none; }
+#leftRail a { display: block; padding: 10px; border-top: 1px solid #DDD; color: #777; font-weight: bold; }
+#leftRail a:hover { color: #000; text-decoration: none; }
+#leftRail > nav > a:first-child { border: none; }
 
 
 
