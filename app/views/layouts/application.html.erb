@@ -10,34 +10,14 @@
   <%= stylesheet_link_tag :all %>
 </head>
 <body>
-    <header id="header">
-      <h1>Zipper</h1>
-
-      <div id="player">
-          player
-      </div>
-
-	  <nav>
-		  <% if !signed_in? %>
-			<a href="#">Login</a>
-			<a href="#" class='signup'>Signup</a>
-			<% else%>
-			<a href="#" class='signout'>Sign Out</a>
-			<% end %>
-	  </nav>
-
-
-
-
-    </header>
+    <%= render "layouts/header" %>
 
     <div id="wrap">
-
          <section id="leftRail">
             <nav>
                 <% if current_user %>
-                    <a href="#">Home</a>
-                    <a href="<%= user_path(session[:user_id]) %>">Profile</a>
+                    <%= link_to "Home", root_path %>
+                    <%= link_to "Profile", user_path(current_user) %>
                     <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
                 <% else %>
                     <%= link_to_sign_in :facebook %>
@@ -55,14 +35,6 @@
                 </div>
              </section>
             <section id="main">
-
-              <% if current_user %>
-              <header>
-                 <%= image_tag(current_user.image || 'http://placehold.it/50x50', :height => 50, :width => 50) %>
-                 <h2><%= current_user.name %> (<%= current_user.provider.capitalize %>)</h2>
-              </header>
-              <% end %>
-
               <%= yield %>
             </section>
          </section>
