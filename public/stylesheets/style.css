@@ -31,6 +31,7 @@ a { color: #0077CC; text-decoration: none; }
 a:hover { color: #333; text-decoration: underline; }
 p { color: #666; line-height: 14px; }
 button, input, textarea { font-family: inherit; font-size: inherit; }
+.icon { font: 12px/0 'Pictos'; }
 
 /* Headers */
 h1,h2,h3,h4,h5 { letter-spacing: -.02em; }
@@ -75,9 +76,9 @@ button:active, .button:active { background: #DDD; }
 /* Content Layout */
 #wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); }
 #leftRail { float: left; width: 150px; border-right: 1px solid #DDD; }
-#container { margin-left: 150px; }
+#container { margin-left: 150px; border-left: 1px solid #DDD; }
 #rightRail { float: right; width: 250px; border-left: 1px solid #DDD; }
-#main { margin-right: 250px; border-right: 1px solid #DDD; border-left: 1px solid #DDD; }
+#main { /* temp*/ min-height: 400px; /* temp */margin-right: 250px; border-right: 1px solid #DDD; }
 
 /* Modules */
 .module { padding: 15px; }
