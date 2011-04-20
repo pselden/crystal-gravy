@@ -11,7 +11,7 @@
 #  updated_at   :datetime
 #
 
-class UserPlaylists < ActiveRecord::Base
+class UserPlaylist < ActiveRecord::Base
 	attr_accessible :playlist_num
 	belongs_to :user
 	belongs_to :playlist
