@@ -21,6 +21,13 @@ em { font-style: italic; }
 strong { font-weight: bold; }
 :focus { outline: 0; }
 
+/* Custom Scroll Bar (Webkit) probably for within the player, but on whole page for now */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-button:vertical:increment { background-color: #333; }
+::-webkit-scrollbar-track-piece { background-color: #333; }
+::-webkit-scrollbar-thumb:vertical { height: 50px; background-color: #666; border: 1px solid #000; border-radius: 3px; }
+::-webkit-scrollbar-thumb:horizontal { width: 50px; background-color: #666; border-radius: 3px; }
+
 /* Helper classes */
 .clearfix:after { visibility: hidden; display: block; content: " "; clear: both; height: 0; }
 .hide { display: none; }
@@ -31,7 +38,7 @@ a { color: #0077CC; text-decoration: none; }
 a:hover { color: #333; text-decoration: underline; }
 p { color: #666; line-height: 14px; }
 button, input, textarea { font-family: inherit; font-size: inherit; }
-.icon { font: 12px/0 'Pictos'; }
+.icon { font: 12px/0 'Pictos'; padding: 0; background: none; border: none; box-shadow: none; border-radius: 0px; }
 
 /* Headers */
 h1,h2,h3,h4,h5 { letter-spacing: -.02em; }
@@ -111,16 +118,3 @@ button:active, .button:active { background: #DDD; }
 #leftRail a { display: block; padding: 10px; border-top: 1px solid #DDD; color: #777; font-weight: bold; }
 #leftRail a:hover { color: #000; text-decoration: none; }
 #leftRail > nav > a:first-child { border: none; }
-
-
-
-
-
-
-
-
-
-
-
-
-
