@@ -1,20 +1,7 @@
-.jp-audio,
-{
-	font-family:Verdana, Arial, sans-serif;
-	color: #666;
-}
-
-.jp-audio .jp-type-playlist .jp-interface {
-	height:20px;
-}
-
 .jp-video .jp-type-single .jp-interface {
 	height:20px;
 	border-bottom:none;
 }
-
-.jp-audio button { height: 22px; width: 26px; color: #000; background: transparent; border: 0 transparent none; }
-.jp-audio button:hover { color: #FFF; }
 
 .jp-pause {
 	display: none;
