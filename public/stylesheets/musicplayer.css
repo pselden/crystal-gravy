@@ -1,20 +1,11 @@
-.jp-audio,
+.music-player,
 {
 	font-family:Verdana, Arial, sans-serif;
 	color: #666;
 }
 
-.jp-audio .jp-type-playlist .jp-interface {
-	height:20px;
-}
-
-.jp-video .jp-type-single .jp-interface {
-	height:20px;
-	border-bottom:none;
-}
-
-.jp-audio button { height: 22px; width: 26px; color: #000; background: transparent; border: 0 transparent none; }
-.jp-audio button:hover { color: #FFF; }
+.music-player button { height: 16px; width: 16px; color: #000; background: transparent; border: 0 transparent none; }
+.music-player button:hover { color: #FFF; }
 
 .jp-pause {
 	display: none;
@@ -57,14 +48,11 @@
     width: 80px;
     overflow:hidden;
     background-color: #FFF;
+    cursor: pointer;
 }
 
 .jp-volume-bar-value {
 	background: url("/images/jplayer.blue.monday.jpg") 0 -256px repeat-x;
 	width:0;
 	height:5px;
-}
-
-div.jp-jplayer {
-	background-color: #000000;
 }
