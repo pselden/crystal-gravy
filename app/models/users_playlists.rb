@@ -13,6 +13,6 @@
 
 class UsersPlaylists < ActiveRecord::Base
 	attr_accessible :playlist_num
-	belongs_to :users	
-	belongs_to :playlists
+	belongs_to :user
+	belongs_to :playlist
 end

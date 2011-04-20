@@ -13,6 +13,6 @@
 
 class PlaylistTracks < ActiveRecord::Base
 	attr_accessible :track_num
-	belongs_to :playlists
-	belongs_to :songs
+	belongs_to :playlist
+	belongs_to :song
 end
