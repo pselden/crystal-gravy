@@ -38,7 +38,7 @@ GEM
     faraday (0.6.0)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     handlebars-rails (0.1.1)
       rails (~> 3.0)
       therubyracer (~> 0.8.0)

@@ -4,8 +4,9 @@ class PlaylistsController < ApplicationController
   end
   
   def show
-	@playlist = Playlist.find(params[:id])
-	@title = @playlist.name
+    @user = current_user
+	  @playlist = Playlist.find(params[:id])
+	  @title = @playlist.name
   end
 
 end
