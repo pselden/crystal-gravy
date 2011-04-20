@@ -13,7 +13,8 @@
 #
 
 class User < ActiveRecord::Base
-	has_many  :playlists, :through => :users_playlists
+	has_many  :user_playlists
+	has_many  :playlists, :through => :user_playlists
 	has_many  :albums
 	has_and_belongs_to_many :songs
 	

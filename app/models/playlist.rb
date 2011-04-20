@@ -11,7 +11,9 @@
 
 class Playlist < ActiveRecord::Base
 	attr_accessible :name, :playlist_num
+	has_many  :playlist_tracks
 	has_many  :songs, :through => :playlist_tracks
+	has_many  :users_playlists
 	has_many  :users, :through => :users_playlists
 	
 	validates :name, :presence => true,

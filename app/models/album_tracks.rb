@@ -13,6 +13,6 @@
 
 class AlbumTracks < ActiveRecord::Base
 	attr_accessible :track_num
-	belongs_to :albums
-	belongs_to :songs
+	belongs_to :album
+	belongs_to :song
 end
