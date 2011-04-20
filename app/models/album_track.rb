@@ -11,7 +11,7 @@
 #  updated_at :datetime
 #
 
-class AlbumTracks < ActiveRecord::Base
+class AlbumTrack < ActiveRecord::Base
 	attr_accessible :track_num
 	belongs_to :album
 	belongs_to :song

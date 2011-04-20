@@ -3,6 +3,7 @@ CrystalGravy::Application.routes.draw do
   resources :users
   resources :playlists
 
+
   get "playlists/new"
 
   get "songs/new"

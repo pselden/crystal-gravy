@@ -11,7 +11,7 @@
 #  updated_at  :datetime
 #
 
-class PlaylistTracks < ActiveRecord::Base
+class PlaylistTrack < ActiveRecord::Base
 	attr_accessible :track_num
 	belongs_to :playlist
 	belongs_to :song
