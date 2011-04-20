@@ -1,7 +1,7 @@
 # == Schema Information
-# Schema version: 20110419175921
+# Schema version: 20110420204624
 #
-# Table name: users_playlists
+# Table name: user_playlists
 #
 #  id           :integer         not null, primary key
 #  user_id      :integer
@@ -11,7 +11,7 @@
 #  updated_at   :datetime
 #
 
-class UsersPlaylists < ActiveRecord::Base
+class UserPlaylists < ActiveRecord::Base
 	attr_accessible :playlist_num
 	belongs_to :user
 	belongs_to :playlist

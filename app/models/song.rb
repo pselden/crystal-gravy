@@ -11,7 +11,9 @@
 
 class Song < ActiveRecord::Base
 	attr_accessible :title
+	has_many  :playlist_tracks
 	has_many  :playlists, :through => :playlist_tracks
+	has_many  :album_tracks
 	has_many  :albums, :through => :album_tracks
 	
 	validates :title, :presence => true,
