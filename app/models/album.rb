@@ -1,18 +1,19 @@
 # == Schema Information
 # Schema version: 20110419175921
 #
-# Table name: songs
+# Table name: albums
 #
 #  id         :integer         not null, primary key
 #  title      :string(255)
+#  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Song < ActiveRecord::Base
+class Album < ActiveRecord::Base
 	attr_accessible :title
-	has_many  :playlists, :through => :playlist_tracks
-	has_many  :albums, :through => :album_tracks
+	has_many  :songs, :through => :album_tracks
+	belongs_to  :users
 	
 	validates :title, :presence => true,
 							:length      => { :maximum => 100 }
