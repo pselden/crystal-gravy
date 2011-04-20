@@ -10,7 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110415162706) do
+ActiveRecord::Schema.define(:version => 20110419175921) do
+
+  create_table "album_tracks", :force => true do |t|
+    t.integer  "song_id"
+    t.integer  "album_id"
+    t.integer  "track_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "albums", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "playlist_tracks", :force => true do |t|
+    t.integer  "playlist_id"
+    t.integer  "song_id"
+    t.integer  "track_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "playlists", :force => true do |t|
     t.string   "name"
@@ -19,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20110415162706) do
   end
 
   create_table "songs", :force => true do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +54,21 @@ ActiveRecord::Schema.define(:version => 20110415162706) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+  end
+
+  create_table "users_playlists", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "playlist_id"
+    t.integer  "playlist_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users_songs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
