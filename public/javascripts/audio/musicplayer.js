@@ -5,6 +5,35 @@ var MusicPlayer;
         var player = $('<div class="jp-jplayer"></div>');
         var queue = new MusicPlayer.Queue();
 
+        var playerInterface = $(interfaceSelector);
+        var progressBar = playerInterface.find('.progress');
+        var volumeBar = playerInterface.find('.volume');
+        progressBar.slider({
+            max: 100,
+            range: 'min',
+            animate: true,
+
+            start: function(){
+              progressBar.data("sliderEnabled", false);
+            },
+
+            stop: function(event, ui){
+                player.jPlayer("playHead", ui.value);
+                progressBar.data("sliderEnabled", true);
+            }
+        }).data("sliderEnabled", true);
+
+        volumeBar.slider({
+            value : 80,
+            max: 100,
+            range: 'min',
+            animate: true,
+
+            slide: function(event, ui) {
+               player.jPlayer("volume", ui.value/100);
+            }
+        });
+
         var songs = [
             {
                 name:"Tempered Song",
@@ -49,7 +78,6 @@ var MusicPlayer;
 
         player.jPlayer({
             ready: function () {
-                var playerInterface = $(interfaceSelector);
                 playerInterface.find('.jp-prev').click(function() {
                     playSong(queue.getPreviousSong());
                 });
@@ -69,9 +97,17 @@ var MusicPlayer;
                 player.jPlayer("pauseOthers");
             },
 
+            timeupdate: function(event){
+                if(progressBar.data('sliderEnabled')){
+                    var currentPercent = event.jPlayer.status.currentPercentAbsolute;
+                    progressBar.slider('value', currentPercent);
+                }
+            },
+
             swfPath: '/swf',
             supplied: 'mp3, m4a, oga',
             cssSelectorAncestor: interfaceSelector
         });
+
     };
 })();

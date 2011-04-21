@@ -3,7 +3,6 @@
 
 
 // manages assets (stylesheets, scripts) between page transitions
-
 (function(){
     var AssetManager = function() {
         this.addStylesheets = function(sources) {
@@ -24,8 +23,23 @@
             $('body').append(scripts);
         };
 
+        // deletes anything that has been added to the window object
+        function washWindow(){
+            var badGuys = window.delta();
+            jQuery.each(badGuys, function (n, i) {
+                try {
+                    if (delete window[i]) return;
+                    window[i] = undefined;
+                }
+                catch (e) {
+                    return;
+                }
+            });
+        }
+
         this.removeAssets = function() {
             $('link.page-css, script.page-js').remove();
+            washWindow();
         };
     };
 

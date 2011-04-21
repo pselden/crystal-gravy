@@ -11,24 +11,11 @@
 	display: none;
 }
 
-.jp-progress {
+.progress {
     display: inline-block;
-	overflow: hidden;
 	background-color: #FFF;
     width: 300px;
 	height:10px;
-}
-
-.jp-seek-bar {
-    background-color: #EEE;
-	width:0;
-	height:100%;
-	cursor: pointer;
-}
-.jp-play-bar {
-	background: url("/images/jplayer.blue.monday.jpg") 0 -218px repeat-x ;
-	width:0;
-	height:100%;
 }
 
 .jp-current-time,
@@ -36,23 +23,10 @@
 	font-style:oblique;
 }
 
-
-/* The seeking class is added/removed inside jPlayer */
-.jp-seeking-bg {
-	background: url("/images/pbar-ani.gif");
-}
-
-.jp-volume-bar {
+.volume {
     display:inline-block;
     height: 5px;
     width: 80px;
-    overflow:hidden;
     background-color: #FFF;
     cursor: pointer;
-}
-
-.jp-volume-bar-value {
-	background: url("/images/jplayer.blue.monday.jpg") 0 -256px repeat-x;
-	width:0;
-	height:5px;
 }
