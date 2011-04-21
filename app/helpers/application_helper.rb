@@ -28,13 +28,9 @@ module ApplicationHelper
   def javascript_include_translations
     javascript_include_tag ["i18n", "translations/#{I18n.locale.to_s}.js"]
   end
-  
-  def title 
-	site_title = "Zipper"
-	if  @title.nil?
-		site_title
-	else
-		"#{site_title } - #{@title}"
-	end
+
+  def title
+    @title.nil? ? "Zipper" : "#{@title} - Zipper"
   end
+
 end

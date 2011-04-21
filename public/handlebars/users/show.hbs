@@ -9,3 +9,8 @@
     <img src="{{user/image}}" />
     <h2>{{user/name}}</h2>
 </header>
+<ul class="playlists">
+  {{#each user/playlists}}
+    <li><a href="#">{{this/name}}</a></li>
+  {{/each}}
+</ul>
