@@ -1,7 +1,9 @@
 CrystalGravy::Application.routes.draw do
 
   resources :users
-	resources :playlists
+  resources :playlists
+  resources :songs
+
 
   match "/playlists/create" => "playlists#create"
   match "/auth/:provider/callback" => "sessions#create"

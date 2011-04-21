@@ -1,0 +1,15 @@
+<header>
+  <h2>All Songs</h2>
+</header>
+{{#if songs}}
+  <ul class='songs'>
+    {{#each songs}}
+      <li>
+        <div>{{this/title}}</div>
+        <div>{{this/album}}</div>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  No songs
+{{/if}}
