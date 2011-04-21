@@ -3,6 +3,7 @@ require 'page_data_responder'
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
+  include PlaylistsHelper
   before_filter :append_custom_view_paths, :export_i18n_messages, :set_locale
   attr_reader :template, :stylesheets, :javascripts
 
