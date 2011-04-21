@@ -19,7 +19,7 @@
                 <% if current_user %>
                     <%= link_to "Home", root_path %>
                     <%= link_to "Profile", user_path(current_user) %>
-					<%= link_to "Playlists", playlist_path(current_user) %>
+					<%= link_to "Playlists", playlists_path %>
                     <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
                 <% else %>
                     <%= link_to_sign_in :facebook %>
