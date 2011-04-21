@@ -114,7 +114,12 @@ button:active, .button:active { background: #DDD; }
 .songs > li > div:first-child { border: none; }
 .songs > li a { color: #333; }
 
+/* List of Playlists =TEMP */
+.playlists > li { padding: 10px; border-top: 1px solid #ddd; font-size: 12px; font-weight: bold; cursor: pointer; list-style: decimal-leading-zero; list-style-position: inside; }
+.playlists > li:first-child { border: none; }
+.playlists > li:hover { background: #F6F6F6; }
+
 /* Nav  */
 #leftRail a { display: block; padding: 10px; border-top: 1px solid #DDD; color: #777; font-weight: bold; }
 #leftRail a:hover { color: #000; text-decoration: none; }
-#leftRail > nav > a:first-child { border: none; }
+#leftRail > nav > a:first-child { border: none; }sam
