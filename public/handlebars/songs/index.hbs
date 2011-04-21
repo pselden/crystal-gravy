@@ -4,7 +4,10 @@
 {{#if songs}}
   <ul class='songs'>
     {{#each songs}}
-      <li><div>{{this/title}}</div></li>
+      <li>
+        <div>{{this/title}}</div>
+        <div>{{this/album}}</div>
+      </li>
     {{/each}}
   </ul>
 {{else}}
