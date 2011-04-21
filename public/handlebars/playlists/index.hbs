@@ -4,3 +4,8 @@
         <button data-icon="+">Add Playlist</button>
     </div>
 </header>
+<ul class="playlists">
+  {{#each user/playlists}}
+    <li><a href="{{this/url}}">{{this/name}}</a></li>
+  {{/each}}
+</ul>

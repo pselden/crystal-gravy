@@ -1,0 +1,9 @@
+<h1>{{form/header}}</h1>
+<form id="playlist" action="/playlists/create" method="post">
+<input type="hidden" name="authenticity_token" value="{{form/token}}" />
+	<ul>
+		<li><label for="title"></label></li>
+		<li><input type="text" name="title"  autofocus maxlength="100" /></li>
+		<li><input type="submit" value="Enter" /></li>
+	</ul>
+</form>
