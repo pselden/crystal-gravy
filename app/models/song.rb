@@ -15,7 +15,7 @@ class Song < ActiveRecord::Base
 	has_many  :playlists, :through => :playlist_tracks
 	has_many  :album_tracks
 	has_many  :albums, :through => :album_tracks
-	
+
 	validates :title, :presence => true,
 							:length      => { :maximum => 100 }
 end
