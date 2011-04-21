@@ -4,7 +4,8 @@ class PlaylistsController < ApplicationController
   end
   
   def index
-    
+    @playlist = Playlist.all
+    respond_with(@playlist)
   end
 
   def show
