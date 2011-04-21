@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @user.playlists.find(:all, :select => "playlists.id, playlists.name").each do |playlist|
       @playlists << {
         "id" => playlist.id,
-        "name" => playlist.name
+        "name" => playlist.name,
+        "url" => playlist_url(playlist.name, playlist.id)
       }
     end
     respond_with(:user => {:name => @user.name, :image => @user.image, :playlists => @playlists, :is_owner => owner?(params[:id])})
