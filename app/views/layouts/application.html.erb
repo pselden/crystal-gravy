@@ -7,7 +7,7 @@
         <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  <%= stylesheet_link_tag "style", "pictos", "musicplayer" %>
+  <%= stylesheet_link_tag "style", "pictos", "musicplayer", "jquery-ui-1.8.11.custom" %>
   <%= page_stylesheets %>
 </head>
 <body>
@@ -42,12 +42,22 @@
          </section>
     </div>
 
+
     <%= javascript_include_translations %>
     <script type="text/javascript">
       var currentLocale = '<%= I18n.locale %>';
     </script>
-    <%= javascript_include_tag 'jquery', 'rails', 'sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy',
-                               'audio/jquery.jplayer', 'audio/musicplayer', 'audio/musicplayer.queue','audio/audio', 'application' %>
+    <%= javascript_include_tag 'jquery/jquery', 'jquery/jquery.ui.core', 'jquery/jquery.ui.widget', 'jquery/jquery.ui.mouse', 'jquery/jquery.ui.slider' %>
+    <%= javascript_include_tag 'rails',
+                               'sammy/sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy',
+                               'audio/jquery.jplayer', 'audio/musicplayer', 'audio/musicplayer.queue','audio/audio',
+                               'application' %>
+
+    <script type="text/javascript">
+        // this is placed before page-specific javascripts but after the main layout, because only page-specific javascripts should be collected
+        (function () { window.delta = function () { var d = [], i; for (i in window) if (s[i] !== 1) d.push(i) ; return d; }; var s = {}, i; for (i in window) s[i] = 1; })();
+    </script>
+
     <%= page_javascripts %>
 </body>
 </html>
