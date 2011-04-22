@@ -7,6 +7,16 @@
       <li>
         <div>{{this/title}}</div>
         <div>{{this/album}}</div>
+        <div>
+          <div class='dropdown'>
+            <button data-icon='+'>Add</button>
+            <ul>
+                {{#each user_playlists}}
+                  <li>{{this/name}}</li>
+                {{/each}}
+            </ul>
+          </div>
+        </div>
       </li>
     {{/each}}
   </ul>

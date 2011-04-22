@@ -8,7 +8,16 @@ class SongsController < ApplicationController
         'album' => song.albums[0].title
       }
     end
-    respond_with(:songs => @songs)
+    if signed_in?
+      @playlists = Array.new
+      current_user.playlists.find(:all, :select => 'playlists.id, playlists.name').each do |playlist|
+        @playlists << {
+          "id" => playlist.id,
+          "name" => playlist.name
+        }
+      end
+    end
+    respond_with(:songs => @songs, :user_playlists => @playlists)
   end
 
   def show
