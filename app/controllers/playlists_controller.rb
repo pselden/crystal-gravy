@@ -9,8 +9,8 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-	  @playlist = Playlist.find_by_id(id_from_url(params[:id]))
-    respond_with(@playlist)
+	  @playlist = Playlist.find_by_id(id_from_url(params[:id]), :include => :songs)
+    respond_with(:playlist => {"name" => @playlist.name, "songs" => @playlist.songs.empty? ? nil : @playlist.songs})
   end
 
 	def create

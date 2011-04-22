@@ -6,3 +6,12 @@
 			<button data-icon="y">Settings</button>
 		</div>
 </header>
+{{#if playlist/songs}}
+<ul class='songs'>
+  {{#each playlist/songs}}
+    <li>{{this/song/title}}</li>
+  {{/each}}
+</ul>
+{{else}}
+This playlist has no songs.
+{{/if}}
