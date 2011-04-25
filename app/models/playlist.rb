@@ -10,15 +10,11 @@
 #
 
 class Playlist < ActiveRecord::Base
-	attr_accessible :name, :playlist_num
 	has_many  :playlist_tracks
 	has_many  :songs, :through => :playlist_tracks
 	has_many  :user_playlists
 	has_many  :users, :through => :user_playlists
 	
 	validates :name, :presence => true,
-							:length      => { :maximum => 50 }
-
-
-
+							:length      => { :within => 1..255 }
 end

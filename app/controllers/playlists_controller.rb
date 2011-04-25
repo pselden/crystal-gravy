@@ -1,7 +1,15 @@
 class PlaylistsController < ApplicationController
   def new
-		respond_with(:form => {:header => "New playlist", :token => form_authenticity_token() } )
+		@template = "playlists/playlistform"
+		append_javascript('playlist')
+		respond_with(:form => { :header => "New playlist"  } )
   end
+	
+	def edit
+	  #TODO: add playlist id, fill the form with playlist data
+		@template = "playlists/playlistform"
+		respond_with(:form => { :header => "New playlist" } )
+	end
 
   def index
     @playlist = Playlist.all
@@ -14,9 +22,14 @@ class PlaylistsController < ApplicationController
   end
 
 	def create
-		@playlist = Playlist.new(params[:title])
-		@playlist.save
-		respond_with(:form => {:header => "SAVED !!!! "} )
+		@playlist = Playlist.new(:name  => params[:name])
+		if @playlist.save
+			current_user.playlists << @playlist
+			#respond_with(:form => {:header => "New playlist", :token => form_authenticity_token() } , :location => new_playlist_path)
+		else
+			#respond_with(:form => {:header => "New playlist", :token => form_authenticity_token() } , :location => new_playlist_path)
+		end
+
 	end
 
 end
