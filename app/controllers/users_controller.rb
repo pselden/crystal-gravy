@@ -12,4 +12,18 @@ class UsersController < ApplicationController
     end
     respond_with(:user => {:name => @user.name, :image => @user.image, :playlists => @playlists, :is_owner => owner?(params[:id])})
   end
+
+  def edit
+    if signed_in?
+      if owner?(params[:id])
+        respond_with(current_user)
+      else
+        #this should be through sammy, one day.
+        redirect_to edit_user_path(current_user.id)
+      end
+    else
+      #redirect to signin?
+    end
+  end
+
 end
