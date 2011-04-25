@@ -1,7 +1,7 @@
 <header>
     <div class='actions'>
       {{#if user/is_owner}}
-        <button data-icon="y">Settings</button>
+        <a href="/users/{{user/id}}/edit" class='button' data-icon="y">Settings</a>
       {{else}}
         <button data-icon="+">Follow</button>
       {{/if}}

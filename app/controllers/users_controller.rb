@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         "url" => playlist_url(playlist.name, playlist.id)
       }
     end
-    respond_with(:user => {:name => @user.name, :image => @user.image, :playlists => @playlists, :is_owner => owner?(params[:id])})
+    respond_with(:user => {:id => @user.id, :name => @user.name, :image => @user.image, :playlists => @playlists, :is_owner => owner?(params[:id])})
   end
 
   def edit
