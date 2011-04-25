@@ -7,6 +7,7 @@ class PageDataResponder < ActionController::Responder
 
   def initialize(controller, resources, options={})
     super
+    puts resource
     @partials = options.delete(:partials) || {}
   end
 
@@ -15,6 +16,12 @@ class PageDataResponder < ActionController::Responder
   end
 
   def to_html
+    # turn all of the respond_with variables into instance variables so they can be used in the template
+    resource.each do |name, value|
+      variable_name = "@#{name}"
+      controller.instance_variable_set(variable_name, value) unless controller.instance_variable_defined? variable_name
+    end
+
     register_handlebars_partials
     super
   end
