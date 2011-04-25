@@ -2806,7 +2806,6 @@
                 if (location.hostname == this.hostname && !$(this).hasClass('nosammy')) {
                     e.preventDefault();
                     proxy.setLocation($(this).attr('href'));
-                    proxy.app.trigger('location-changed');
                 }
             });
         },
@@ -2822,6 +2821,7 @@
 
         setLocation: function(new_location) {
             History.pushState({ path: this.path }, '', new_location);
+            this.app.trigger('location-changed');
         }
     };
 
