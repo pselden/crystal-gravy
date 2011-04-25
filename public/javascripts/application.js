@@ -99,7 +99,7 @@
 
     $(document).ready(function() {
         I18n.locale = currentLocale || "en";
-        app.run();
+        app.run(false);
         new MusicPlayer("#music-player");
         new LoginPopup($('#header a.login'));
     });
