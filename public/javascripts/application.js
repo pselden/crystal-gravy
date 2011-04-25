@@ -79,6 +79,10 @@
                 dataType: 'json'
             });
         });
+
+        $.comm.listen('location', function(location){
+           app.setLocation(location);
+        });
     });
 
     function loadPartials(partials){
