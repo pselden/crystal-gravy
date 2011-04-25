@@ -10,8 +10,8 @@
         <%= current_user.name %> (<%= current_user.provider.capitalize %>)
         <%= link_to "Sign Out", signout_path, :class => "signout nosammy" %>
     <% else %>
-        <a href="#">Login</a>
-        <a href="#" class='signup'>Signup</a>
+        <a href="#" class="login">Login</a>
+        <a href="#" class="signup">Signup</a>
     <% end %>
   </nav>
 </header>

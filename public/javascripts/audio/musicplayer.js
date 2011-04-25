@@ -34,6 +34,16 @@ var MusicPlayer;
             }
         });
 
+        function queueSong(song){
+           queue.addSongToQueue(song);
+        }
+
+        // sets the song of the player and plays it
+        function playSong(song){
+            player.jPlayer('setMedia', song);
+            player.jPlayer('play');
+        }
+
         var songs = [
             {
                 name:"Tempered Song",
@@ -65,16 +75,10 @@ var MusicPlayer;
         ];
 
         $.each(songs, function(i, song){
-          queue.addSongToQueue(song);
+          queueSong(song);
         });
 
-        $('body').append(player);
-
-        // sets the song of the player and plays it
-        function playSong(song){
-            player.jPlayer('setMedia', song);
-            player.jPlayer('play');
-        }
+        playerInterface.append(player);
 
         player.jPlayer({
             ready: function () {
@@ -109,5 +113,8 @@ var MusicPlayer;
             cssSelectorAncestor: interfaceSelector
         });
 
+        $.comm.listen('musicplayer.queuesong', function(song){
+            queueSong(song);
+        });
     };
 })();
