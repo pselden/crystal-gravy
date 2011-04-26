@@ -7,7 +7,6 @@ class PageDataResponder < ActionController::Responder
 
   def initialize(controller, resources, options={})
     super
-    puts resource
     @partials = options.delete(:partials) || {}
   end
 

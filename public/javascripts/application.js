@@ -80,7 +80,7 @@
             });
         });
 
-        $.comm.listen('location', function(location){
+        $.comm.listen('location.href', function(location){
            app.setLocation(location);
         });
     });
