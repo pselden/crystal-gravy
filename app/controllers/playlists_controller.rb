@@ -1,13 +1,13 @@
 class PlaylistsController < ApplicationController
   def new
-		@template = "playlists/playlistform"
+		@template = "playlistform"
 		append_javascript('playlist')
 		respond_with(:form => { :header => "New playlist"  } )
   end
 	
 	def edit
 	  #TODO: add playlist id, fill the form with playlist data
-		@template = "playlists/playlistform"
+		@template = "playlistform"
 		respond_with(:form => { :header => "New playlist" } )
 	end
 
