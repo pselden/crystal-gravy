@@ -20,7 +20,7 @@ class PageDataResponder < ActionController::Responder
     resource.each do |name, value|
       variable_name = "@#{name}"
       controller.instance_variable_set(variable_name, value)
-    end
+    end if resource.is_a?(Hash)
 
     register_handlebars_partials
     render template
