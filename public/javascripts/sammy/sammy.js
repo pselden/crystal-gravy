@@ -814,7 +814,7 @@
     //
     // * `start_url` Optionally, a String can be passed which the App will redirect to
     //   after the events/routes have been bound.
-    run: function(runRoute, start_url) {
+    run: function(start_url) {
       if (this.isRunning()) { return false; }
       var app = this;
 
@@ -828,7 +828,7 @@
       this.trigger('run', {start_url: start_url});
       this._running = true;
       // set last location
-      this.last_location = runRoute === false ? ['get', this.getLocation()] : null;
+      this.last_location = null;
       if (this.getLocation() == '' && typeof start_url != 'undefined') {
         this.setLocation(start_url);
       }

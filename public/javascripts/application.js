@@ -59,8 +59,11 @@
             return I18n.t(key, values);
         });
 
+        // do not run the route on initial page load
+        var runOnce = false;
         // catch all path
         this.get(/.*/, function(context) {
+            if(!runOnce) { runOnce = true; return; }
             var route = context.path;
             $.ajax({
                 url: route + ".pd",
@@ -99,7 +102,7 @@
 
     $(document).ready(function() {
         I18n.locale = currentLocale || "en";
-        app.run(false);
+        app.run(true);
         new MusicPlayer("#music-player");
         new LoginPopup($('#header a.login'));
     });
