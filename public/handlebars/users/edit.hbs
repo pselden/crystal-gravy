@@ -1,0 +1,8 @@
+<h1>Account Settings</h1>
+<form id="edit_user" action="/users/{{user/id}}" method="PUT">
+  <div>
+    <label for="vanity">Vanity</label>
+    <input {{#if user/vanity}} value="{{user/vanity}}"{{/if}} type="text" name="vanity" id="vanity" />
+  </div>
+  <button>Save</button>
+</form>

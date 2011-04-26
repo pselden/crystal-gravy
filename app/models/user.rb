@@ -27,4 +27,7 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
+
+  validates :vanity, :on => :update, :uniqueness => true, :length => { :within => 9..24 }
+
 end
