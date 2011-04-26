@@ -4,7 +4,6 @@ CrystalGravy::Application.routes.draw do
   resources :playlists
   resources :songs
 
-	match "/playlists/create" => "playlists#create"
   match "/playlists/:playlistName" => "playlists#show"
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
