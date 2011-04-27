@@ -28,6 +28,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  validates :vanity, :on => :update, :uniqueness => true, :length => { :within => 9..24 }
+  #validates :username, :on => :create, :uniqueness => true, :length => { :within => 2..64 }
 
 end
