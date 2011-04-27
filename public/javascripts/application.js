@@ -68,6 +68,14 @@
             $.ajax({
                 url: route + ".pd",
                 success: function (pageData) {
+                    if(pageData.redirect) {
+                        // Fetch the State Objects
+                        History.replaceState({},"",pageData.redirect);
+                        context.redirect(pageData.redirect);
+                        //app.trigger("location-changed");
+                        return;
+                    }
+
                     $.when.apply($, loadPartials(pageData.partials)).then(function(){
                         context.partial(pageData.template, pageData.data).then(function(){
                             assetManager.removeAssets();

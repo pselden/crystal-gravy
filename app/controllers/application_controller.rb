@@ -25,6 +25,13 @@ class ApplicationController < ActionController::Base
       @javascripts += javascripts
     end
 
+    def redirect_to(options = {}, response_status = {})
+      respond_to do |format|
+        format.pd { render :json => {:redirect => options} }
+        format.any { super }
+      end
+    end
+
   private
     def set_locale
       I18n.locale = "en" #TODO: get current user's locale or default
