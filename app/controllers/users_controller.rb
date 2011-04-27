@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  
   def show
+    append_javascript('follow')
     @user = User.find(params[:id], :select => "id, name, image")
     @title = @user.name
     @playlists = Array.new
@@ -10,7 +12,8 @@ class UsersController < ApplicationController
         "url" => playlist_url(playlist.name, playlist.id)
       }
     end
-    respond_with(:user => {:id => @user.id, :name => @user.name, :image => @user.image, :playlists => @playlists, :is_owner => owner?(params[:id])})
+
+    respond_with(:user => {:id => @user.id, :name => @user.name, :image => @user.image, :playlists => @playlists, :is_owner => owner?(params[:id]), :following => signed_in? ? current_user.following?(@user.id) : false})
   end
 
   def edit
@@ -28,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def update
-
   end
 
 end

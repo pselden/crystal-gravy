@@ -3,7 +3,11 @@
       {{#if user/is_owner}}
         <a href="/users/{{user/id}}/edit" class='button' data-icon="y">Settings</a>
       {{else}}
-        <button data-icon="+">Follow</button>
+        {{#if user/following}}
+          <button id="unfollow" data-icon="-" data-following_id="{{user/id}}">Unfollow</button>
+        {{else}}
+          <button id="follow" data-icon="+" data-following_id="{{user/id}}">Follow</button>
+        {{/if}}
       {{/if}}
     </div>
     <img src="{{user/image}}" />
