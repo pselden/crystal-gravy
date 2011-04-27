@@ -4,9 +4,4 @@ class PagesController < ApplicationController
     respond_with({:blog => @blog})
   end
 
-  def test
-    @t = { :one => "This is a test of the emergency broadcast system.", :two => "hurray" }
-    respond_with({:t => @t}, :partials => {:partial1 => "pages/sub/partial1", :partial2 => "shared/partial2"})
-  end
-
 end

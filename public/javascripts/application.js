@@ -65,9 +65,23 @@
         this.get(/.*/, function(context) {
             if(!runOnce) { runOnce = true; return; }
             var route = context.path;
+            var parameters = "";
+            if (route.indexOf("?")!=-1){
+                var temp =  route.split("?");
+                route = temp[0];
+                parameters = "?"+temp[1];
+            }
             $.ajax({
-                url: route + ".pd",
+                url: route + ".pd" + parameters,
                 success: function (pageData) {
+                    if(pageData.redirect) {
+                        // Fetch the State Objects
+                        History.replaceState({},"",pageData.redirect);
+                        context.redirect(pageData.redirect);
+                        //app.trigger("location-changed");
+                        return;
+                    }
+
                     $.when.apply($, loadPartials(pageData.partials)).then(function(){
                         context.partial(pageData.template, pageData.data).then(function(){
                             assetManager.removeAssets();

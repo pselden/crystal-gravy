@@ -1,4 +1,3 @@
 es:
-  test: "No hablo espagnol."
   blog:
     by: "%{1} escribió esto: '%{0}'"

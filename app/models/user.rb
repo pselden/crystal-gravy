@@ -16,7 +16,11 @@ class User < ActiveRecord::Base
 	has_many  :user_playlists
 	has_many  :playlists, :through => :user_playlists
 	has_many  :albums
+  has_many :followings
+  has_many :followers
 	has_and_belongs_to_many :songs
+
+  #validates :username, :on => :create, :uniqueness => true, :length => { :within => 2..64 }
 	
   def self.find_or_create_or_update_with_omniauth(auth)
     user = find_by_provider_and_uid(auth["provider"], auth["uid"].to_s) || User.new
@@ -28,6 +32,16 @@ class User < ActiveRecord::Base
     user
   end
 
-  validates :vanity, :on => :update, :uniqueness => true, :length => { :within => 9..24 }
+  def follow!(following_id)
+    followings.create!(:following_id => following_id)
+  end
+
+  def following?(following_id)
+    followings.find_by_following_id(following_id) ? true : false
+  end
+
+  def unfollow!(following_id)
+    followings.find_by_following_id(following_id).destroy
+  end
 
 end

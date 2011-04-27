@@ -63,6 +63,7 @@ button, .button { cursor: pointer; padding: 4px 6px; background: #CCC; font-size
 .button { display: inline-block; height: 14px; padding: 4px 9px; line-height: 14px; text-align: center; }
 button:hover, .button:hover { background: #FFF; background: -moz-linear-gradient(#FFF, #DDD); background: -webkit-linear-gradient(#FFF, #DDD); text-decoration: none; }
 button:active, .button:active { background: #DDD; }
+button[disabled] { cursor: default; background: #DDD; color: #999; }
 .primary { background: #7DAA29; border-color: #54770E; color: #fff;
 	background: -moz-linear-gradient(#8DC427, #7DAA29); background: -webkit-linear-gradient(#8DC427, #7DAA29); }
 

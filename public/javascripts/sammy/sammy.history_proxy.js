@@ -2593,6 +2593,7 @@
 
                        // Create the state Hash
                        currentStateHash = History.getHashByState(currentState);
+                       currentState.hash = currentHash;
 
                        // Check if we are DiscardedState
                        var discardObject = History.discardedState(currentState);
@@ -2817,7 +2818,6 @@
         getLocation: function() {
             return History.getState().url;
         },
-
 
         setLocation: function(new_location) {
             History.pushState({ path: this.path }, '', new_location);
