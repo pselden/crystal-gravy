@@ -15,8 +15,9 @@ class UsersController < ApplicationController
 
   def edit
     if signed_in?
+      append_javascript('edit_user')
       if owner?(params[:id])
-        respond_with(current_user)
+        respond_with(:user => {:id => current_user.id, :name => current_user.name, :username => current_user.username})
       else
         #this should be through sammy, one day.
         redirect_to edit_user_path(current_user.id)
@@ -24,6 +25,10 @@ class UsersController < ApplicationController
     else
       #redirect to signin?
     end
+  end
+
+  def update
+
   end
 
 end

@@ -1,0 +1,45 @@
+.browse{
+    margin: 0 10px 10px 10px;
+}
+
+                .browse>header>h3{
+			margin:0;
+			padding:12px;
+		}
+		.browse{
+			font-family:Arial,Helvetica;
+			font-size:12px;
+		}
+		.browseBody{
+			overflow:hidden;
+			background-color:#eee;
+			border:#eee 1px solid;
+			border-radius:4px;
+			-moz-border-radius:4px;
+			-webkit-border-radius:4px;
+		}
+	
+		.sortMixtape li{
+			display:inline-block;
+			padding:12px 0 0 12px;
+		}
+		
+		.sortMixtape li:first-child{
+			padding-left:12px;	
+		}
+		
+		.mixtapeList>li>ul{
+			float:left;
+			width:115px;
+			padding:12px;
+		}
+		
+		.mixtapeList>li>ul>li:first-child{
+			width:115px;
+			height:115px;
+			background-color:#ccc;
+		}	
+		
+		.mixtapeList>li>ul>li:last-child{
+			color:#3399FF;
+		}

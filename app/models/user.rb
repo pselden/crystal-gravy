@@ -27,4 +27,7 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
+
+  #validates :username, :on => :create, :uniqueness => true, :length => { :within => 2..64 }
+
 end
