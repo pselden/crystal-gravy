@@ -43,24 +43,13 @@
     <script type="text/javascript">
       var currentLocale = '<%= I18n.locale %>';
     </script>
-		<%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};"  %>
-	
+
     <%= javascript_include_tag 'jquery/jquery', 'jquery/jquery.ui.core', 'jquery/jquery.ui.widget', 'jquery/jquery.ui.mouse',
                                'jquery/jquery.ui.position', 'jquery/jquery.ui.dialog', 'jquery/jquery.ui.slider' %>
     <%= javascript_include_tag 'rails',
                                'sammy/sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy',
                                'audio/jquery.jplayer', 'audio/musicplayer', 'audio/musicplayer.queue',
                                'comm', 'login', 'application' %>
-		<script type="text/javascript">
-		// append auth token
-		$(document).ajaxSend(function(event, request, settings) {
-				if ( settings.type.toLowerCase() == 'post' ) {
-						settings.data = (settings.data ? settings.data + "&" : "")
-								+ "authenticity_token=" + encodeURIComponent( AUTH_TOKEN );
-						request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				}
-		});
-		</script>
 
     <script type="text/javascript">
         // this is placed before page-specific javascripts but after the main layout, because only page-specific javascripts should be collected

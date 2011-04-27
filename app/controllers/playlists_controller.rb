@@ -1,13 +1,13 @@
 class PlaylistsController < ApplicationController
   def new
-		@template = "playlists/playlistform"
+		@template = "playlistform"
 		append_javascript('playlist')
 		respond_with(:form => { :header => "New playlist"  } )
   end
 	
 	def edit
 	  #TODO: add playlist id, fill the form with playlist data
-		@template = "playlists/playlistform"
+		@template = "playlistform"
 		respond_with(:form => { :header => "New playlist" } )
 	end
 
@@ -23,11 +23,17 @@ class PlaylistsController < ApplicationController
 
 	def create
 		@playlist = Playlist.new(:name  => params[:name])
+    @result = { :error=> false, :message =>'' }
 		if @playlist.save
 			current_user.playlists << @playlist
-			#respond_with(:form => {:header => "New playlist", :token => form_authenticity_token() } , :location => new_playlist_path)
+      respond_to do |format|
+        format.json { render :json => @result.to_json }
+      end
 		else
-			#respond_with(:form => {:header => "New playlist", :token => form_authenticity_token() } , :location => new_playlist_path)
+      @result = { :error=> true, :message =>'An error has occured. Try again.' }
+      respond_to do |format|
+        format.json { render :json => @result.to_json }
+      end
 		end
 
 	end

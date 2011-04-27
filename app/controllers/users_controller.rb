@@ -15,8 +15,9 @@ class UsersController < ApplicationController
 
   def edit
     if signed_in?
+      append_javascript('edit_user')
       if owner?(params[:id])
-        respond_with(current_user)
+        respond_with(:user => {:id => current_user.id, :name => current_user.name, :vanity => current_user.vanity})
       else
         #this should be through sammy, one day.
         redirect_to edit_user_path(current_user.id)
@@ -24,6 +25,25 @@ class UsersController < ApplicationController
     else
       #redirect to signin?
     end
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.attributes = {:vanity => params[:vanity]}
+    @result = { :error => false, :message => 'Success' }
+    if user.save
+      respond_to do |format|
+        format.json { render :json => @result.to_json }
+      end
+		else
+      @result = { :error => true, :message => 'An error has occured. Try again.' }
+      if user.errors.any?
+        @result = { :error => true, :message => 'An error has occured. Try again.', :errors => user.errors }
+      end
+      respond_to do |format|
+        format.json { render :json => @result.to_json }
+      end
+		end
   end
 
 end
