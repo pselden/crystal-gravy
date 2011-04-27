@@ -1,0 +1,30 @@
+        <section class="browse">
+		<header> 
+			<h3> Browse playlist </h3>
+		</header>
+		<section class="browseBody">
+			<ul class="sortMixtape">
+				<li> Sort By :</li>
+				<li> <a href="#">newest</a> </li>
+				<li> <a href="#">highest rated</a> </li>
+				<li> <a href="#">bands</a> </li>
+				<li> <a href="#">curators</a> </li>
+				<li> <a href="#">moods</a> </li>
+                                <li> <a href="playlist?sort=name">Name</a></li>
+                                <li> <a href="playlist?sort=author">Author</a></li>    
+
+			</ul>
+			<ul class="mixtapeList">
+                                {{#each playlist}}
+                                   <li> 
+					<ul>
+						<li> {{{cover}}} </li>
+						<li> {{{name}}} </li>
+						<li> by {{{author}}} </li>
+						<li> <a href="#">+ {{#if follow}} Follow {{else}} {{/if}} </a> </li>
+					</ul>
+                                    </li>
+                                {{/each}}
+        		</ul>
+		</section>
+	</section>
