@@ -69,7 +69,8 @@ module OmniAuth
         {
           'name' => user_hash['name'],
           'image' => user_hash['image'],
-          'user_id' => user_hash['userId']
+          'user_id' => user_hash['userId'],
+          'nickname' => user_hash['webUri'].gsub('http://www.myspace.com/', '')
         }
       end
 

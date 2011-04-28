@@ -27,8 +27,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-
+  def create
+    @user = User.create(params[:user])
+    sign_in @user
+    if @user.errors.any?
+      render :json => {:errors => @user.errors }
+    else
+      respond_to do |format|
+        format.json { render :json => @user }
+        format.any { redirect_to root_path }
+      end
+    end
   end
 
 end

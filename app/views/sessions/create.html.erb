@@ -1,6 +1,11 @@
 <script type="text/javascript">
   if(window.opener) {
-    window.opener.location.reload(true);
-    window.close()
+    <% unless @user.new_record? %>
+       window.opener.location.reload(true);
+    <% else %>
+       var user = <%=raw @user.to_json %>
+       window.opener.$.comm.send('user.new', user);
+    <% end %>
+    window.close();
   }
 </script>

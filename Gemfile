@@ -14,6 +14,11 @@ group :development do
   gem 'annotate-models', '1.0.4'
 end
 
+group :test do
+  gem 'rspec', '2.5.0'
+  gem 'webrat', '0.7.1'
+end
+
 
 # Deploy with Capistrano
 # gem 'capistrano'

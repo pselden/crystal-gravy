@@ -4,3 +4,13 @@
     <%= link_to_sign_in :twitter %>
     <%= link_to_sign_in :google %>
 </div>
+
+<div id="new-user-dialog" style="display:none;">
+  <form id="new-user" action="/users" method="post">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" type="text" name="username" maxlength="64"/>
+    </div>
+    <input type="submit" value="Submit"/>
+  </form>
+</div>

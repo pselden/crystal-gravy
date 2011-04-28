@@ -2768,15 +2768,15 @@
 
     Sammy = Sammy || {};
 
-    // The PushLocationProxy is an optional location proxy prototype.
-    // PushLocationProxy gets its location from history API. No hash needed here.
-    // Only compatible with Firefox >= Chrom 6, Firefox 4.0, Safari 5.0
-    //
+    // The HistoryProxy is an optional location proxy prototype.
+    // HistoryProxy gets its location from the HTML5 history API where available,
+    // and falls back to hashes when not
+
     // ### Example
     //
     //     var app = $.sammy(function() {
     //         // set up the location proxy
-    //         this.setLocationProxy(new Sammy.PushLocationProxy(this));
+    //         this.setLocationProxy(new Sammy.HistoryProxy(this));
     //
     //         this.get('/about', function() {
     //           // Do something here
@@ -2813,6 +2813,10 @@
         unbind: function() {
             $('a').unbind('click');
             $(window).unbind('popstate').unbind('hashchange');
+        },
+
+        replaceLocation: function(newUrl){
+            History.replaceState({}, '', newUrl);
         },
 
         getLocation: function() {
