@@ -85,9 +85,8 @@ button[disabled] { cursor: default; background: #DDD; color: #999; }
 /* Content Layout */
 #wrap { margin: 48px 10px 10px; background: #fff; border-radius: 6px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); }
 #leftRail { float: left; width: 150px; border-right: 1px solid #DDD; }
-#container { margin-left: 150px; border-left: 1px solid #DDD; }
+#main { /* temp*/ min-height: 400px; /* temp */  margin-left: 150px; border-left: 1px solid #DDD; }
 #rightRail { float: right; width: 250px; border-left: 1px solid #DDD; }
-#main { /* temp*/ min-height: 400px; /* temp */margin-right: 250px; border-right: 1px solid #DDD; }
 
 /* Modules */
 .module { padding: 15px; }
