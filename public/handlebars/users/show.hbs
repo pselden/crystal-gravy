@@ -1,16 +1,51 @@
 <header>
-    <div class='actions'>
-      {{#if user/is_owner}}
-        <a href="/users/{{user/id}}/edit" class='button' data-icon="y">Settings</a>
-      {{else}}
-        <button data-icon="+">Follow</button>
-      {{/if}}
-    </div>
-    <img src="{{user/image}}" />
-    <h2>{{user/name}}</h2>
+  <div class='actions'>
+    {{#if user/is_owner}}
+    <a href="/users/{{user/id}}/edit" class='button' data-icon="y">Settings</a>
+    {{else}}
+    {{#if user/following}}
+    <button id="follow_unfollow" data-icon="-" data-following_id="{{user/id}}">Unfollow</button>
+    {{else}}
+    <button id="follow_unfollow" class='primary' data-icon="+" data-following_id="{{user/id}}">Follow</button>
+    {{/if}}
+    {{/if}}
+  </div>
+  <img class='userPic' src="{{user/image}}" />
+  <h2>{{user/name}}</h2>
 </header>
-<ul class="playlists">
-  {{#each user/playlists}}
+
+<section id="rightRail">
+  <div class='module'>
+    <h3>Following</h3>
+    {{#if user/followings}}
+    <ul class='grid'>
+      {{#each user/followings}}
+      <li><a href="/users/{{this/id}}"><img class='userPic' src="{{this/image}}" /></a></li>
+      {{/each}}
+    </ul>
+    {{else}}
+    {{user/name}} isn't following anyone
+    {{/if}}
+  </div>
+
+  <div class='module'>
+    <h3>Followers</h3>
+    {{#if user/followers}}
+    <ul class='grid'>
+      {{#each user/followers}}
+      <li><a href="/users/{{this/id}}"><img class='userPic' src="{{this/image}}" /></a></li>
+      {{/each}}
+    </ul>
+    {{else}}
+    {{user/name}} has no followers
+    {{/if}}
+  </div>
+</section>
+
+<article id="content">
+  <ul class="playlists">
+    {{#each user/playlists}}
     <li><a href="{{this/url}}">{{this/name}}</a></li>
-  {{/each}}
-</ul>
+    {{/each}}
+  </ul>
+</article>
