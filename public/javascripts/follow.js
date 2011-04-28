@@ -1,41 +1,25 @@
 (function($) {
+
+  $('#follow_unfollow').click(function(){
+    var $this = $(this),
+        user_id = $this.attr('data-following_id'),
+        action = ($this.attr('data-icon') == "+") ? "follow" : "unfollow";
+    $.ajax({
+      url: (action == "follow") ? "/followings/create" : "/followings/destroy",
+      type: (action == "follow") ? "post" : "delete",
+      data: "following_id="+user_id,
+      success:  function () {
+        $this.removeAttr('disabled');
+        if (action == "follow")
+        {
+          $this.attr('data-icon', '-')
+            .text('Unfollow');
+        } else {
+           $this.attr('data-icon', '+')
+            .text('Follow');
+        }
+      }
+  });
+});
   
-  $('#follow').click(function(){
-    $this = $(this);
-    $this.attr('disabled', 'true');
-    $.ajax({
-      url: "/followings/create",
-      type: 'post',
-      data: "following_id="+$this.attr('data-following_id'),
-      success:  function (data) {
-        if(data.errors)
-        {
-          alert('asdfs');
-        } else {
-          alert('Success!');
-        }
-      }
-    });
-    return false;
-  });
-
-  $('#unfollow').click(function(){
-    $this = $(this);
-    $this.attr('disabled', 'true');
-    $.ajax({
-      url: "/followings/destroy",
-      type: 'delete',
-      data: "following_id="+$this.attr('data-following_id'),
-      success:  function (data) {
-        if(data.errors)
-        {
-          alert('asdfs');
-        } else {
-          alert('Success!');
-        }
-      }
-    });
-    return false;
-  });
-
 })(jQuery);

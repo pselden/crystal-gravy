@@ -4,9 +4,9 @@
         <a href="/users/{{user/id}}/edit" class='button' data-icon="y">Settings</a>
       {{else}}
         {{#if user/following}}
-          <button id="unfollow" data-icon="-" data-following_id="{{user/id}}">Unfollow</button>
+          <button id="follow_unfollow" data-icon="-" data-following_id="{{user/id}}">Unfollow</button>
         {{else}}
-          <button id="follow" data-icon="+" data-following_id="{{user/id}}">Follow</button>
+          <button id="follow_unfollow" data-icon="+" data-following_id="{{user/id}}">Follow</button>
         {{/if}}
       {{/if}}
     </div>
