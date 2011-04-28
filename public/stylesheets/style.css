@@ -35,11 +35,14 @@ strong { font-weight: bold; }
 body { background: #555; color: #444; font-family: Helvetica,Arial,sans-serif; font-size: 11px;  }
 button:before,
 .button:before { content: attr(data-icon); font: 12px/0 'Pictos'; margin-right: 3px; }
+.primary:before,
+.button.primary:before { color: #6FAA00; }
 a { color: #0077CC; text-decoration: none; }
 a:hover { color: #333; text-decoration: underline; }
 p { color: #666; line-height: 14px; }
 button, input, textarea { font-family: inherit; font-size: inherit; }
 .icon { font: 12px/0 'Pictos'; padding: 0; background: none; border: none; box-shadow: none; border-radius: 0px; }
+.userPic { width: 50px; height: 50px; }
 
 /* Headers */
 h1,h2,h3,h4,h5 { letter-spacing: -.02em; }
@@ -64,8 +67,6 @@ button, .button { cursor: pointer; padding: 4px 6px; background: #CCC; font-size
 button:hover, .button:hover { background: #FFF; background: -moz-linear-gradient(#FFF, #DDD); background: -webkit-linear-gradient(#FFF, #DDD); text-decoration: none; }
 button:active, .button:active { background: #DDD; }
 button[disabled] { cursor: default; background: #DDD; color: #999; }
-.primary { background: #7DAA29; border-color: #54770E; color: #fff;
-	background: -moz-linear-gradient(#8DC427, #7DAA29); background: -webkit-linear-gradient(#8DC427, #7DAA29); }
 
 /* Grid */
 .grid { margin: -10px -10px 0 0; }

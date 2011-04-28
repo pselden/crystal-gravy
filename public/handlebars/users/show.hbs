@@ -6,11 +6,11 @@
     {{#if user/following}}
     <button id="follow_unfollow" data-icon="-" data-following_id="{{user/id}}">Unfollow</button>
     {{else}}
-    <button id="follow_unfollow" data-icon="+" data-following_id="{{user/id}}">Follow</button>
+    <button id="follow_unfollow" class='primary' data-icon="+" data-following_id="{{user/id}}">Follow</button>
     {{/if}}
     {{/if}}
   </div>
-  <img src="{{user/image}}" />
+  <img class='userPic' src="{{user/image}}" />
   <h2>{{user/name}}</h2>
 </header>
 
@@ -20,7 +20,7 @@
     {{#if user/followings}}
     <ul class='grid'>
       {{#each user/followings}}
-      <li><a href="/users/{{this/id}}"><img src="{{this/image}}" /></a></li>
+      <li><a href="/users/{{this/id}}"><img class='userPic' src="{{this/image}}" /></a></li>
       {{/each}}
     </ul>
     {{else}}
@@ -33,7 +33,7 @@
     {{#if user/followers}}
     <ul class='grid'>
       {{#each user/followers}}
-      <li><a href="/users/{{this/id}}"><img src="{{this/image}}" /></a></li>
+      <li><a href="/users/{{this/id}}"><img class='userPic' src="{{this/image}}" /></a></li>
       {{/each}}
     </ul>
     {{else}}
