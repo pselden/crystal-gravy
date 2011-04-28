@@ -35,13 +35,21 @@ class User < ActiveRecord::Base
   def follow!(following_id)
     followings.create!(:following_id => following_id)
   end
+  
+  def unfollow!(following_id)
+    followings.find_by_following_id(following_id).destroy
+  end
+
+  def add_follower!(follower_id)
+    followers.create!(:follower_id => follower_id)
+  end
+
+  def delete_follower!(follower_id)
+    followers.find_by_follower_id(follower_id).destroy
+  end
 
   def following?(following_id)
     followings.find_by_following_id(following_id) ? true : false
-  end
-
-  def unfollow!(following_id)
-    followings.find_by_following_id(following_id).destroy
   end
 
 end
