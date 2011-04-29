@@ -126,4 +126,7 @@ button[disabled] { cursor: default; background: #DDD; color: #999; }
 /* Nav  */
 #leftRail a { display: block; padding: 10px; border-top: 1px solid #DDD; color: #777; font-weight: bold; }
 #leftRail a:hover { color: #000; text-decoration: none; }
-#leftRail > nav > a:first-child { border: none; }sam
+#leftRail > nav > a:first-child { border: none; }
+
+/* Dialog */
+.dialog { display:none; }

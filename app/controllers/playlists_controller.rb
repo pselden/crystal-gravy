@@ -22,7 +22,7 @@ class PlaylistsController < ApplicationController
   end
 
 	def create
-		@playlist = Playlist.new(:name  => params[:titlename])
+		@playlist = Playlist.new(:titlename  => params[:titlename])
     @result = { :error=> false, :message =>'' }
 		if @playlist.save
 			current_user.playlists << @playlist

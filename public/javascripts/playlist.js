@@ -1,7 +1,7 @@
 (function($) {
 	$('#formSubmit').click(function(e){
 		$.ajax({
-                    url: '/playlists/create',
+                    url: '/playlists',
                     type: 'post',
                     data: $(this.form).serialize(),
                     success:  function (data) {
