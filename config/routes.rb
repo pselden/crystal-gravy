@@ -9,7 +9,10 @@ CrystalGravy::Application.routes.draw do
 
   match "/followings/create" => "followings#create"
   match "/followings/destroy" => "followings#destroy"
+	
+	match "/playlists/create" => "playlists#create"
   match "/playlists/:playlistName" => "playlists#show"
+	
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
 

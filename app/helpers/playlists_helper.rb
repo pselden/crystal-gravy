@@ -1,6 +1,6 @@
 module PlaylistsHelper
-  def playlist_url(name, id)
-    "/playlists/#{name.gsub(/ /,'_')}-#{id.to_s}"
+  def playlist_url(titlename, id)
+    "/playlists/#{titlename.gsub(/ /,'-')}-#{id.to_s}"
   end
 
   def id_from_url(params_url)

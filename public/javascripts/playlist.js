@@ -16,7 +16,7 @@
         
         function success(data){
             if (!data.error){
-                $.comm.send('location.href','/');
+                $.comm.send('location.href', data.playlistpath);
             } else {
                 error(data);
             }

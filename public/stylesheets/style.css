@@ -120,10 +120,17 @@ button[disabled] { cursor: default; background: #DDD; color: #999; }
 /* List of Playlists =TEMP */
 .playlists > li { padding: 10px; border-top: 1px solid #ddd; font-size: 12px; font-weight: bold; cursor: pointer; list-style: decimal-leading-zero; list-style-position: inside; }
 .playlists > li:first-child { border: none; }
+.playlists > li:last-child { padding: 10px; border-bottom: 1px solid #ddd; font-size: 12px; font-weight: bold; cursor: pointer; list-style: decimal-leading-zero; list-style-position: inside; }
 .playlists > li:hover { background: #F6F6F6; }
 .playlists > li > a { color: #333; }
 
 /* Nav  */
 #leftRail a { display: block; padding: 10px; border-top: 1px solid #DDD; color: #777; font-weight: bold; }
 #leftRail a:hover { color: #000; text-decoration: none; }
-#leftRail > nav > a:first-child { border: none; }sam
+#leftRail > nav > a:first-child { border: none; }
+
+/* Playlist Form */
+.playlistEdit { padding: 15px; }
+#playlist > ul > li { padding: 10px 0 0; }
+.playlistEdit input { width: 300px; }
+.playlistEdit textarea { width: 300px; height: 100px; }

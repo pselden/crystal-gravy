@@ -1,8 +1,15 @@
-<h1>{{form/header}}</h1>
-<form id="playlist" action="/playlists/create" method="post">
-	<ul>
-		<li><label for="name"></label></li>
-		<li><input type="text" name="name"  autofocus maxlength="100" /></li>
-		<li><input id="formSubmit" type="submit" value="Enter" /></li>
-	</ul>
-</form>
+<header>
+	<h2>{{form/header}}</h2>
+</header>
+<article class="playlistEdit">
+	<span>Please enter a name and description for your playlist:</span>
+	<form id="playlist" action="/playlists/create" method="post">
+		<ul>
+			<li><label for="titlename">Title</label></li>
+			<li><input type="text" name="titlename" value="{{form/titlename}}" autofocus maxlength="100" /></li>
+			<li><label for="descriptiontext">Description</label></li>
+			<li><textarea class="descriptiontext" name="descriptiontext">{{form/descriptiontext}}</textarea>
+			<li><button id="formSubmit">Enter</button></li>
+		</ul>
+	</form>
+</article>
