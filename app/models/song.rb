@@ -10,6 +10,7 @@
 #
 
 class Song < ActiveRecord::Base
+	set_table_name "songs"
 	attr_accessible :title
 	has_many  :playlist_tracks
 	has_many  :playlists, :through => :playlist_tracks
