@@ -1,5 +1,7 @@
 CrystalGravy::Application.routes.draw do
 
+  get "user_login/new"
+
   get "browse/playlist"
 
   resources :users
