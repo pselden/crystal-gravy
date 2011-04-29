@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429030610) do
+ActiveRecord::Schema.define(:version => 20110429153112) do
 
   create_table "accounts", :force => true do |t|
     t.string   "userid"
@@ -94,16 +94,15 @@ ActiveRecord::Schema.define(:version => 20110429030610) do
     t.integer  "mediacountvalue"
   end
 
-  create_table "songs", :force => true do |t|
-    t.string   "title"
+  create_table "profile", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "user_playlist", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "playlist_id"
-    t.integer  "playlist_num"
+  create_table "songs", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -131,13 +130,6 @@ ActiveRecord::Schema.define(:version => 20110429030610) do
     t.datetime "updated_at"
     t.string   "image"
     t.string   "username"
-  end
-
-  create_table "users_songs", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "song_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
