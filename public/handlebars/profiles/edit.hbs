@@ -1,0 +1,8 @@
+<h2>Edit Profile</h2>
+<form id="edit_profile" {{#if profile}}action="/profiles/update" method="PUT"{{else}}action="/profiles" method="POST" {{/if}}>
+  <div>
+    <label for="bio">Bio</label>
+    <textarea name="bio" id="bio"></textarea>
+  </div>
+  <button type='submit'>Save</button>
+</form>

@@ -134,3 +134,7 @@ button[disabled] { cursor: default; background: #DDD; color: #999; }
 #playlist > ul > li { padding: 10px 0 0; }
 .playlistEdit input { width: 300px; }
 .playlistEdit textarea { width: 300px; height: 100px; }
+
+/* Dialog */
+.dialog { display:none; }
+
