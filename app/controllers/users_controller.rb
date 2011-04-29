@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @title = @user.name
     #get playlists
     @playlists = Array.new
-    @user.playlists.find(:all, :select => "playlists.id, playlists.name").each do |playlist|
+    @user.playlists.find(:all, :select => "playlists.id, playlists.titlename").each do |playlist|
       @playlists << {
         "id" => playlist.id,
         "name" => playlist.name,
