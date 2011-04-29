@@ -10,6 +10,7 @@
 #
 
 class Playlist < ActiveRecord::Base
+	set_table_name "playlists"
 	has_many  :playlist_tracks
 	has_many  :songs, :through => :playlist_tracks
 	has_many  :user_playlists
