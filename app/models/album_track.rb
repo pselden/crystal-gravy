@@ -12,6 +12,7 @@
 #
 
 class AlbumTrack < ActiveRecord::Base
+	set_table_name "album_tracks"
 	attr_accessible :track_num
 	belongs_to :album
 	belongs_to :song

@@ -18,11 +18,11 @@ class PlaylistsController < ApplicationController
 
   def show
 	  @playlist = Playlist.find_by_id(id_from_url(params[:id]), :include => :songs)
-    respond_with(:playlist => {"name" => @playlist.name, "songs" => @playlist.songs.empty? ? nil : @playlist.songs})
+    respond_with(:playlist => {"name" => @playlist.titlename, "songs" => @playlist.songs.empty? ? nil : @playlist.songs})
   end
 
 	def create
-		@playlist = Playlist.new(:name  => params[:name])
+		@playlist = Playlist.new(:name  => params[:titlename])
     @result = { :error=> false, :message =>'' }
 		if @playlist.save
 			current_user.playlists << @playlist

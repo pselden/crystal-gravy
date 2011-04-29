@@ -11,6 +11,7 @@
 #
 
 class Album < ActiveRecord::Base
+  set_table_name "albums"
 	attr_accessible :title
 	has_many  :album_tracks
 	has_many  :songs, :through => :album_tracks

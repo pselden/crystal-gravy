@@ -6,11 +6,11 @@ class UsersController < ApplicationController
     @title = @user.name
     #get playlists
     @playlists = Array.new
-    @user.playlists.find(:all, :select => "playlists.id, playlists.name").each do |playlist|
+    @user.playlists.find(:all, :select => "playlists.id, playlists.titlename").each do |playlist|
       @playlists << {
         "id" => playlist.id,
-        "name" => playlist.name,
-        "url" => playlist_url(playlist.name, playlist.id)
+        "name" => playlist.titlename,
+        "url" => playlist_url(playlist.titlename, playlist.id)
       }
     end
     #get followers

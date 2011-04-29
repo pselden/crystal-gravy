@@ -1,6 +1,7 @@
 CrystalGravy::Application.routes.draw do
 
-  get "browse/playlist"
+
+   get "browse/playlist"
 
   resources :users
   resources :playlists
