@@ -1,4 +1,5 @@
 (function($) {
+        var $settings = $('#settings');
 	$('#formSubmit').click(function(e){
 		$.ajax({
                     url: '/playlists',
@@ -13,6 +14,11 @@
 		});
 		return false;
 	});
+        
+        $settings.click(function(e){
+            $.comm.send('location.href', $settings.data('editpath'));
+            return false;
+        })
         
         function success(data){
             if (!data.error){

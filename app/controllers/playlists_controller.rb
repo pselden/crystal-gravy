@@ -9,7 +9,10 @@ class PlaylistsController < ApplicationController
 	  #TODO: add playlist id, fill the form with playlist data
 		@template = "playlistform"
 		append_javascript('playlist')
-		respond_with(:form => { :header => "Edit playlist", :titlename => '', :descriptiontext => '' } )
+    @playlist = Playlist.find_by_id(id_from_url(params[:id]))
+		respond_with(:form => { :header => "Edit playlist", 
+                            :titlename => @playlist.titlename, 
+                            :descriptiontext => @playlist.descriptiontext } )
 	end
 
   def index
@@ -18,8 +21,12 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    append_javascript('playlist')
 	  @playlist = Playlist.find_by_id(id_from_url(params[:id]), :include => :songs)
-    respond_with(:playlist => {"titlename" => @playlist.titlename, "descriptiontext" => @playlist.descriptiontext,  "songs" => @playlist.songs.empty? ? nil : @playlist.songs})
+    respond_with(:playlist => {"titlename" => @playlist.titlename, 
+                              "descriptiontext" => @playlist.descriptiontext,
+                              "editpath" => playlist_url(@playlist.titlename, @playlist.id) + "/edit",
+                              "songs" => @playlist.songs.empty? ? nil : @playlist.songs})
   end
 
 	def create
