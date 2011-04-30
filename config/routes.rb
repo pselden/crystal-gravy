@@ -1,11 +1,14 @@
 CrystalGravy::Application.routes.draw do
 
 
-   get "browse/playlist"
+  get "browse/playlist"
 
   resources :users
   resources :playlists
   resources :songs
+  resources :profiles
+  
+  match "profile/edit" => "profiles#edit"
 
   match "/followings/create" => "followings#create"
   match "/followings/destroy" => "followings#destroy"
