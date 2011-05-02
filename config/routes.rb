@@ -13,7 +13,8 @@ CrystalGravy::Application.routes.draw do
   match "/followings/create" => "followings#create"
   match "/followings/destroy" => "followings#destroy"
 	
-	match "/playlists/create" => "playlists#create"
+  match "/playlists/create" => "playlists#create"
+	match "/playlists/update" => "playlists#update"
   match "/playlists/:playlistName" => "playlists#show"  
   match "/playlists/:playlistName/edit" => "playlists#edit"
 

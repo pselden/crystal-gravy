@@ -2,15 +2,20 @@ class PlaylistsController < ApplicationController
   def new
 		@template = "playlistform"
 		append_javascript('playlist')
-		respond_with(:form => { :header => "New playlist", :titlename => '', :descriptiontext => '' } )
+		respond_with(:form => { :mode => "create", 
+                            :id => '',
+                            :header => "New playlist", 
+                            :titlename => '', 
+                            :descriptiontext => '' } )
   end
 	
 	def edit
-	  #TODO: add playlist id, fill the form with playlist data
 		@template = "playlistform"
 		append_javascript('playlist')
     @playlist = Playlist.find_by_id(id_from_url(params[:id]))
-		respond_with(:form => { :header => "Edit playlist", 
+		respond_with(:form => { :mode => "edit",
+                            :id => @playlist.id,
+                            :header => "Edit playlist", 
                             :titlename => @playlist.titlename, 
                             :descriptiontext => @playlist.descriptiontext } )
 	end
@@ -44,7 +49,10 @@ class PlaylistsController < ApplicationController
         format.json { render :json => @result.to_json }
       end
 		end
-
 	end
+  
+  def update
+    #TODO: add update logic
+  end
 
 end

@@ -3,7 +3,8 @@
 </header>
 <article class="playlistEdit">
 	<span>Please enter a name and description for your playlist:</span>
-	<form id="playlist" action="/playlists/create" method="post">
+	<form id="playlist" action="/playlists/{{form/mode}}" method="post">
+            <input type="hidden" value="{{form/id}}" name="playlist_id" />
 		<ul>
 			<li><label for="titlename">Title</label></li>
 			<li><input type="text" name="titlename" value="{{form/titlename}}" autofocus maxlength="100" /></li>
