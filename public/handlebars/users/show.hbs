@@ -45,7 +45,7 @@
 <article id="content">
   <ul class="playlists">
     {{#each user/playlists}}
-    <li><a href="{{this/url}}">{{this/name}}</a></li>
+        <li><a href="/playlists/{{this/id}}">{{this/titlename}}</a></li>
     {{/each}}
   </ul>
 </article>
