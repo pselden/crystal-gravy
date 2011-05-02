@@ -623,7 +623,7 @@
     });
 
     Handlebars.registerHelper('if', function(context, fn, inverse) {
-        if (!context || context == []) {
+        if(!context || Handlebars.Utils.isEmpty(context)) {
             return inverse(this);
         } else {
             return fn(this);
