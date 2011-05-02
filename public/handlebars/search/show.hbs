@@ -1,8 +1,7 @@
 
-
 <div class="searchBox">
     <input type="text" name="searchInput" id="searchInput" value="{{{q}}}"/>    
-    <a id="searchExecute" href="show"> Search </a>
+    <a id="searchExecute" href="show"> Search Artist </a>
 </div>
 
 
@@ -16,44 +15,38 @@
                 </header>
                 <section>
                     {{#firstOfArray artists/entry}}
-                    <div class="floatRight"> Right </div>
+                    <div class="floatRight"> Right Options </div>
                     <img class="floatLeft" src="{{{artistThumbnailUrl}}}" />
                     <ul class="artistInformation">
-                            <li> {{{artistDisplayName}}} </li>
+                            <li> <a href="{{{artistUrl}}}" data-artistId="{{{artistId}}}">{{{artistDisplayName}}}</a> </li>
                             <li> {{{genre}}} </li>
                             <li> {{{location}}} </li>
                             {{#ifOne isOfficial}} <li> Official  </li> {{/ifOne}} 
                             <li> Matches on {{{matchType}}} </li>
                     </ul>
-                    {{/firstOfArray}}
+                  {{/firstOfArray}}
+                <div class="more"> <a href=""> More Artist </a> </div>
                 </section>
             </article>
 
             <article class="songResults">
                     <header> 
-                        <h2> Songs </h2>
+                        <h2> Songs ({{{songs/totalResults}}}) </h2>
                     </header>
                     <section>
+                       {{#each songs/entry}}
                         <ul>
                             <li>
-                                <div> Play song </div>
-                                <div> Right options </div>    
-                                <ul>
-                                    <li> Song Title </li>
-                                    <li> Artist </li>
-                                    <li> Other information </li>    
-                                </ul>
-                            </li>
-                            <li>
-                                <div> Play song </div>
-                                <div> Right options </div>    
-                                <ul>
-                                    <li> Song Title </li>
-                                    <li> Artist </li>
-                                    <li> Other information </li>    
+                                <div class="floatRight"> Right options </div>    
+                                <div class="floatLeft"> <a href="#" data-songId="{{{songId}}}">Queue</a> / <a href="#" data-songId="{{{songId}}}">Play</a> </div>
+                                 <ul class="songInformation">
+                                    <li> <a href="{{{songUrl}}}">{{{albumName}}}</a> {{{inMinute songDuration}}}:{{{inSecond songDuration}}} </li>
+                                    <li> by {{{artistDisplayName}}} </li>
                                 </ul>
                             </li>
                         </ul>
+                      {{/each}}   
+                      <div class="more"> <a href=""> More Songs </a> </div>
                     </section>
             </article>
 
@@ -68,8 +61,10 @@
                                 <li> Artist Name </li>
                                 <li> Other information </li>
                             </ul>
+                           <div class="more"> <a href=""> More Albums </a> </div>     
                         </section>
             </article>
+            
         </section>
 
     {{/data}}

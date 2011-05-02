@@ -38,10 +38,23 @@
             }
             else{
                 return fn(false);
-            }
-            
-            
+            }            
     });
     
+    Handlebars.registerHelper("inMinute", function(seconds){
+            if (seconds || seconds.length>0){ 
+                var minute = Math.floor(parseInt(seconds)/60);
+                if (minute < 10) minute = "0"+minute;
+                return minute;
+            }
+   });
+    
+    Handlebars.registerHelper("inSecond", function(seconds){
+            if (seconds || seconds.length>0){ 
+                var second = parseInt(seconds)%60;
+                if (second < 10) second = "0"+second;
+                return second;
+            }  
+    });
     
 })(jQuery,window)
