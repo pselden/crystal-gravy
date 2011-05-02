@@ -1,0 +1,83 @@
+
+
+<div class="searchBox">
+    <input type="text" name="searchInput" id="searchInput" value="{{{q}}}"/>    
+    <a id="searchExecute" href="show"> Search </a>
+</div>
+
+
+{{#if data}}
+    {{#data}}
+        <section class="search">
+
+            <article class="artistResults">
+                <header> 
+                    <h2> Artists ({{{artists/totalResults}}}) </h2>
+                </header>
+                <section>
+                    {{#firstOfArray artists/entry}}
+                    <div class="floatRight"> Right </div>
+                    <img class="floatLeft" src="{{{artistThumbnailUrl}}}" />
+                    <ul class="artistInformation">
+                            <li> {{{artistDisplayName}}} </li>
+                            <li> {{{genre}}} </li>
+                            <li> {{{location}}} </li>
+                            {{#ifOne isOfficial}} <li> Official  </li> {{/ifOne}} 
+                            <li> Matches on {{{matchType}}} </li>
+                    </ul>
+                    {{/firstOfArray}}
+                </section>
+            </article>
+
+            <article class="songResults">
+                    <header> 
+                        <h2> Songs </h2>
+                    </header>
+                    <section>
+                        <ul>
+                            <li>
+                                <div> Play song </div>
+                                <div> Right options </div>    
+                                <ul>
+                                    <li> Song Title </li>
+                                    <li> Artist </li>
+                                    <li> Other information </li>    
+                                </ul>
+                            </li>
+                            <li>
+                                <div> Play song </div>
+                                <div> Right options </div>    
+                                <ul>
+                                    <li> Song Title </li>
+                                    <li> Artist </li>
+                                    <li> Other information </li>    
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+            </article>
+
+            <article class="albumResults">
+                        <header>
+                            <h2> Albums </h2>
+                        </header>
+                        <section>
+                            <ul>
+                                <li> Artist Image </li>
+                                <li> Album Name </li>
+                                <li> Artist Name </li>
+                                <li> Other information </li>
+                            </ul>
+                        </section>
+            </article>
+        </section>
+
+    {{/data}}
+
+
+{{else}}
+
+    <p> Nothing has been searched </p>
+
+
+{{/if}}

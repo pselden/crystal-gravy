@@ -1,7 +1,8 @@
 (function($) {
+        var $settings = $('#settings');
 	$('#formSubmit').click(function(e){
 		$.ajax({
-                    url: '/playlists/create',
+                    url: '/playlists',
                     type: 'post',
                     data: $(this.form).serialize(),
                     success:  function (data) {
@@ -14,9 +15,14 @@
 		return false;
 	});
         
+        $settings.click(function(e){
+            $.comm.send('location.href', $settings.data('editpath'));
+            return false;
+        })
+        
         function success(data){
             if (!data.error){
-                $.comm.send('location.href','/');
+                $.comm.send('location.href', data.playlistpath);
             } else {
                 error(data);
             }

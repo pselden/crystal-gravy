@@ -12,6 +12,7 @@
 #
 
 class PlaylistTrack < ActiveRecord::Base
+	set_table_name "playlist_tracks"
 	attr_accessible :track_num
 	belongs_to :playlist
 	belongs_to :song

@@ -10,11 +10,12 @@
 #
 
 class Playlist < ActiveRecord::Base
+	set_table_name "playlists"
 	has_many  :playlist_tracks
 	has_many  :songs, :through => :playlist_tracks
 	has_many  :user_playlists
 	has_many  :users, :through => :user_playlists
 	
-	validates :name, :presence => true,
+	validates :titlename, :presence => true,
 							:length      => { :within => 1..255 }
 end

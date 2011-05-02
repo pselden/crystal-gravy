@@ -10,7 +10,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427151452) do
+ActiveRecord::Schema.define(:version => 20110429153112) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "userid"
+    t.string   "displayname"
+    t.string   "titlename"
+    t.string   "givenname"
+    t.string   "middlename"
+    t.string   "familyname"
+    t.string   "suffixname"
+    t.string   "patronymicname"
+    t.string   "matronymicname"
+    t.string   "nickname"
+    t.integer  "emailaddressid"
+    t.integer  "homephoneid"
+    t.integer  "mobilephoneid"
+    t.integer  "businessphoneid"
+    t.integer  "faxphoneid"
+    t.string   "companyname"
+    t.string   "mailingaddressfirststreettext"
+    t.string   "mailingaddresssecondstreettext"
+    t.string   "mailingaddresscityname"
+    t.string   "mailingaddressstateprovincecode"
+    t.string   "mailingaddresspostalcode"
+    t.string   "preferedculturecode"
+    t.string   "isogendercode"
+    t.string   "avatarimageuri"
+    t.integer  "currentlocationid"
+    t.float    "currentlocationlatitudevalue"
+    t.float    "currentlocationlongitudevalue"
+    t.datetime "birthdate"
+    t.integer  "agevalue"
+    t.boolean  "notificationenabledindicator"
+    t.boolean  "verifiedemailaddressidindicator"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "album_tracks", :force => true do |t|
     t.integer  "song_id"
@@ -27,6 +63,20 @@ ActiveRecord::Schema.define(:version => 20110427151452) do
     t.datetime "updated_at"
   end
 
+  create_table "followers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "followings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "following_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "playlist_tracks", :force => true do |t|
     t.integer  "playlist_id"
     t.integer  "song_id"
@@ -36,7 +86,17 @@ ActiveRecord::Schema.define(:version => 20110427151452) do
   end
 
   create_table "playlists", :force => true do |t|
-    t.string   "name"
+    t.string   "titlename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "descriptiontext"
+    t.string   "imageuri"
+    t.integer  "mediacountvalue"
+  end
+
+  create_table "profile", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= title %></title>
-  <%= csrf_meta_tag %>
+  <head>
+    <title><%= title %></title>
+    <%= csrf_meta_tag %>
     <!--[if lt IE 9]>
         <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  <%= stylesheet_link_tag "style", "pictos", "musicplayer", "jquery-ui-1.8.11.custom" %>
-  <%= page_stylesheets %>
-</head>
-<body>
+    <%= stylesheet_link_tag "style", "pictos", "musicplayer", "jquery-ui-1.8.11.custom" %>
+    <%= page_stylesheets %>
+  </head>
+  <body>
     <%= render "layouts/header" %>
 
     <div id="wrap">
-         <section id="leftRail">
-            <nav>
-                <% if current_user %>
-                    <%= link_to "Home", root_path %>
-                    <%= link_to "Profile", user_path(current_user) %>
-					<%= link_to "Add Playlist", new_playlist_path %>
-                    <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
-                <% end %>
-            </nav>
-        </section>
+      <section id="leftRail">
+        <nav>
+          <% if current_user %>
+            <%= link_to "Home", root_path %>
+            <%= link_to "Profile", user_path(current_user) %>
+            <%= link_to "Add Playlist", new_playlist_path %>
+            <%= link_to "Sign Out", signout_path, :class => "nosammy" %>
+          <% end %>
+        </nav>
+      </section>
 
-        <section id="container" class='clearfix'>
-		    <section id="rightRail">
-			    <div class='module'>
-                    <h3>Example Module</h3>
-                </div>
-             </section>
-            <section id="main">
-              <%= yield %>
-            </section>
-         </section>
+      <section id="main">
+        <%= yield %>
+      </section>
     </div>
 
     <%= render 'shared/login_dialog' %>
+    <%= render 'shared/new_user_dialog' %>
 
     <%= javascript_include_translations %>
     <script type="text/javascript">
@@ -45,17 +39,18 @@
     </script>
 
     <%= javascript_include_tag 'jquery/jquery', 'jquery/jquery.ui.core', 'jquery/jquery.ui.widget', 'jquery/jquery.ui.mouse',
-                               'jquery/jquery.ui.position', 'jquery/jquery.ui.dialog', 'jquery/jquery.ui.slider' %>
-    <%= javascript_include_tag 'rails',
-                               'sammy/sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy',
-                               'audio/jquery.jplayer', 'audio/musicplayer', 'audio/musicplayer.queue',
-                               'comm', 'login', 'application' %>
+      'jquery/jquery.ui.position', 'jquery/jquery.ui.dialog', 'jquery/jquery.ui.slider',
+      'rails',
+      'sammy/sammy', 'sammy/sammy.handlebars', 'sammy/sammy.history_proxy',
+      'audio/jquery.jplayer', 'audio/musicplayer', 'audio/musicplayer.queue',
+      'comm', 'login', 'new_user', 'application'
+    %>
 
     <script type="text/javascript">
-        // this is placed before page-specific javascripts but after the main layout, because only page-specific javascripts should be collected
-        (function () { window.delta = function () { var d = [], i; for (i in window) if (s[i] !== 1) d.push(i) ; return d; }; var s = {}, i; for (i in window) s[i] = 1; })();
+      // this is placed before page-specific javascripts but after the main layout, because only page-specific javascripts should be collected
+      (function () { window.delta = function () { var d = [], i; for (i in window) if (s[i] !== 1) d.push(i) ; return d; }; var s = {}, i; for (i in window) s[i] = 1; })();
     </script>
 
     <%= page_javascripts %>
-</body>
+  </body>
 </html>

@@ -47,7 +47,8 @@
         var assetManager = new AssetManager();
 
         this.use('Handlebars', 'hbs');
-        this.setLocationProxy(new Sammy.HistoryProxy(this));
+        var proxy = new Sammy.HistoryProxy(this);
+        this.setLocationProxy(proxy);
 
         // handlebars translate helper
         // takes in a key and an optional array of arguments
@@ -75,10 +76,8 @@
                 url: route + ".pd" + parameters,
                 success: function (pageData) {
                     if(pageData.redirect) {
-                        // Fetch the State Objects
-                        History.replaceState({},"",pageData.redirect);
+                        proxy.replaceLocation(pageData.redirect);
                         context.redirect(pageData.redirect);
-                        //app.trigger("location-changed");
                         return;
                     }
 

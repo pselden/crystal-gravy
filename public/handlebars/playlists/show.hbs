@@ -1,17 +1,22 @@
-<header>
+<header >
 		<div class="actions">
+			{{#if playlist/songs}}
 			<button data-icon="9">Play</button>
-			<button data-icon="+">Add Song</button>
-			<button data-icon="y">Settings</button>
+			{{/if}}
+			<button data-icon="+">Add Songs</button>
+			<button id="settings" data-icon="y" data-editpath="{{playlist/editpath}}">Settings</button>
 		</div>
-    <h2>{{playlist/name}}</h2>
+    <h2>{{playlist/titlename}}</h2>
+		<span>{{playlist/descriptiontext}}</span>
 </header>
-{{#if playlist/songs}}
-<ul class='songs'>
-  {{#each playlist/songs}}
-    <li>{{this/song/title}}</li>
-  {{/each}}
-</ul>
-{{else}}
-This playlist has no songs.
-{{/if}}
+<article class="playlistEdit">
+	{{#if playlist/songs}}
+		<ul class='songs'>
+			{{#each playlist/songs}}
+				<li>{{this/song/title}}</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		This playlist has no songs.
+	{{/if}}
+</article>

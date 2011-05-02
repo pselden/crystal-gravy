@@ -146,6 +146,10 @@ GEM
     unicorn (3.5.0)
       kgio (~> 2.3)
       rack
+    webrat (0.7.1)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
 
 PLATFORMS
   ruby
@@ -156,6 +160,8 @@ DEPENDENCIES
   i18n-js
   omniauth
   rails (= 3.0.5)
+  rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
   sqlite3-ruby (= 1.3.2)
   unicorn
+  webrat (= 0.7.1)

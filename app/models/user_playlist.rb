@@ -12,6 +12,7 @@
 #
 
 class UserPlaylist < ActiveRecord::Base
+	set_table_name "user_playlists"
 	belongs_to :user
 	belongs_to :playlist
 end
