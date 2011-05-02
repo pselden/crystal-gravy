@@ -64,4 +64,12 @@ class User < ActiveRecord::Base
   def following?(following_id)
     followings.find_by_following_id(following_id) ? true : false
   end
+	
+	def has_playlist?(playlist_id)
+		playlists.where("playlist_id = :playlist_id", { :playlist_id => playlist_id}).first.nil?
+	end
+	
+	def delete_playlist!(playlist_id)
+		playlists.where("playlist_id = :playlist_id", { :playlist_id => playlist_id}).destroy
+	end
 end

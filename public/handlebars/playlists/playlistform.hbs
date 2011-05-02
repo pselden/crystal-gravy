@@ -4,14 +4,16 @@
 <article class="playlistEdit">
 	<span>Please enter a name and description for your playlist:</span>
 	<form id="playlist" action="/playlists/{{form/mode}}" method="post">
-            <input type="hidden" value="{{form/id}}" name="playlist_id" />
-		<ul>
-			<li><label for="titlename">Title</label></li>
-			<li><input type="text" name="titlename" value="{{form/titlename}}" autofocus maxlength="100" /></li>
-			<li><label for="descriptiontext">Description</label></li>
-			<li><textarea class="descriptiontext" name="descriptiontext">{{form/descriptiontext}}</textarea>
-			<li><button id="formSubmit">Enter</button></li>
-		</ul>
+		<input type="hidden" value="{{form/id}}" name="playlist_id" />
+		<div>
+			<label for="titlename">Title</label>
+			<input type="text" name="titlename" value="{{form/titlename}}" autofocus maxlength="100" />
+		</div>
+		<div>
+			<label for="descriptiontext">Description</label>
+			<textarea class="descriptiontext" name="descriptiontext">{{form/descriptiontext}}</textarea>
+		<div>
+		<button id="formSubmit">Enter</button>
 	</form>
 </article>
 

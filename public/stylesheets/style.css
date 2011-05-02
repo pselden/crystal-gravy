@@ -138,3 +138,6 @@ button[disabled] { cursor: default; background: #DDD; color: #999; }
 /* Dialog */
 .dialog { display:none; }
 
+/* Temporary style (Nouman, DO NOT TOUCH IT!) :-) */
+.floatRight { float: right; }
+

@@ -1,16 +1,17 @@
 (function($) {
         var $settings = $('#settings');
 	$('#formSubmit').click(function(e){
+		var $form = $(this.form);
 		$.ajax({
-                    url: '/playlists',
-                    type: 'post',
-                    data: $(this.form).serialize(),
-                    success:  function (data) {
-                            success(data);
-                    },
-                    error: function(){
-                        error();
-                    }
+			url: $form.attr('action'),
+			type: 'post',
+			data: $form.serialize(),
+			success:  function (data) {
+							success(data);
+			},
+			error: function(){
+					error();
+			}
 		});
 		return false;
 	});
