@@ -14,7 +14,7 @@
                     <h2> Artists ({{{artists/totalResults}}}) </h2>
                 </header>
                 <section>
-                    {{#firstOfArray artists/entry}}
+                    {{#startIndexItem artists}}
                     <div class="floatRight"> Right Options </div>
                     <img class="floatLeft" src="{{{artistThumbnailUrl}}}" />
                     <ul class="artistInformation">
@@ -24,7 +24,7 @@
                             {{#ifOne isOfficial}} <li> Official  </li> {{/ifOne}} 
                             <li> Matches on {{{matchType}}} </li>
                     </ul>
-                  {{/firstOfArray}}
+                  {{/startIndexItem}}
                 <div class="more"> <a href=""> More Artist </a> </div>
                 </section>
             </article>
@@ -34,7 +34,7 @@
                         <h2> Songs ({{{songs/totalResults}}}) </h2>
                     </header>
                     <section>
-                       {{#each songs/entry}}
+                       {{#myEach songs}}
                         <ul>
                             <li>
                                 <div class="floatRight"> Right options </div>    
@@ -45,22 +45,23 @@
                                 </ul>
                             </li>
                         </ul>
-                      {{/each}}   
+                      {{/myEach}}   
                       <div class="more"> <a href=""> More Songs </a> </div>
                     </section>
             </article>
 
             <article class="albumResults">
                         <header>
-                            <h2> Albums </h2>
+                            <h2> Albums ({{{albums/totalResults}}})</h2>
                         </header>
                         <section>
+                         {{#myEach albums}}   
                             <ul>
-                                <li> Artist Image </li>
-                                <li> Album Name </li>
-                                <li> Artist Name </li>
-                                <li> Other information </li>
-                            </ul>
+                                <li> <img src="{{{albumThumbnailUrl}}}"> </li>
+                                <li> {{{albumName}}} </li>
+                                <li> by {{{artistDisplayName}}} </li>
+                           </ul>
+                          {{/myEach}}
                            <div class="more"> <a href=""> More Albums </a> </div>     
                         </section>
             </article>

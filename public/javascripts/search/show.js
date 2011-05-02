@@ -21,13 +21,29 @@
     });
     
     
-    Handlebars.registerHelper("firstOfArray", function(array,fn, inverse){
-            if (array || array.length>0){ 
-                return fn(array[0]);
+    Handlebars.registerHelper("startIndexItem", function(context,fn, inverse){
+            if (context){
+                if (context.entry && context.entry[context.startIndex]){
+                    return fn(context.entry[context.startIndex]);
+                }                
             }
             else{
-                return inverse(this);
+                return inverse[this];
             }
+    });
+    
+    Handlebars.registerHelper("myEach", function(context,fn, inverse){
+            var ret="";
+            if (context && context.entry){
+                    var entry = context.entry;
+                    for(var i=context.startIndex, l=entry.length; i<l; i++ ){
+                              ret = ret + fn(entry[i]);                  
+                    }
+            }
+            else{
+                ret = inverse[this];
+            }
+            return ret;
     });
         
     Handlebars.registerHelper("ifOne", function(context,fn){
@@ -47,6 +63,7 @@
                 if (minute < 10) minute = "0"+minute;
                 return minute;
             }
+            return "";
    });
     
     Handlebars.registerHelper("inSecond", function(seconds){
@@ -55,6 +72,7 @@
                 if (second < 10) second = "0"+second;
                 return second;
             }  
+            return "";
     });
     
 })(jQuery,window)
