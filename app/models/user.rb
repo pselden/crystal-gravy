@@ -18,8 +18,10 @@ class User < ActiveRecord::Base
 	has_many  :user_playlists
 	has_many  :playlists, :through => :user_playlists
 	has_many  :albums
-  has_many :followings
-  has_many :followers
+  has_many  :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many  :reverse_relationships, :foreign_key => "followed_id", :class_name => "Relationship", :dependent => :destroy
+  has_many  :following, :through => :relationships, :source => :followed
+  has_many  :followers, :through => :reverse_relationships, :source => :follower
 	has_and_belongs_to_many :songs
 
   validates :username, :uniqueness => true, :length => { :within => 2..64 }
@@ -45,23 +47,15 @@ class User < ActiveRecord::Base
     user
   end
 
-  def follow!(following_id)
-    followings.create!(:following_id => following_id)
+  def follow!(followed)
+    relationships.create!(:followed_id => followed.id)
   end
   
-  def unfollow!(following_id)
-    followings.find_by_following_id(following_id).destroy
+  def unfollow!(followed)
+    relationships.find_by_followed_id(followed.id).destroy
   end
 
-  def add_follower!(follower_id)
-    followers.create!(:follower_id => follower_id)
-  end
-
-  def delete_follower!(follower_id)
-    followers.find_by_follower_id(follower_id).destroy
-  end
-
-  def following?(following_id)
-    followings.find_by_following_id(following_id) ? true : false
+  def following?(followed)
+    relationships.find_by_followed_id(followed.id)
   end
 end

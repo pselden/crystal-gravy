@@ -3,7 +3,7 @@
     {{#if user/is_owner}}
     <a href="/users/{{user/id}}/edit" class='button' data-icon="y">Settings</a>
     {{else}}
-    {{#if user/following}}
+    {{#if user/is_following}}
     <button id="follow_unfollow" data-icon="-" data-following_id="{{user/id}}">Unfollow</button>
     {{else}}
     <button id="follow_unfollow" class='primary' data-icon="+" data-following_id="{{user/id}}">Follow</button>
@@ -17,9 +17,9 @@
 <section id="rightRail">
   <div class='module'>
     <h3>Following</h3>
-    {{#if user/followings}}
+    {{#if user/following}}
     <ul class='grid'>
-      {{#each user/followings}}
+      {{#each user/following}}
       <li><a href="/users/{{this/id}}"><img class='userPic' src="{{this/image}}" /></a></li>
       {{/each}}
     </ul>
@@ -45,7 +45,7 @@
 <article id="content">
   <ul class="playlists">
     {{#each user/playlists}}
-    <li><a href="{{this/url}}">{{this/name}}</a></li>
+        <li><a href="/playlists/{{this/id}}">{{this/titlename}}</a></li>
     {{/each}}
   </ul>
 </article>
