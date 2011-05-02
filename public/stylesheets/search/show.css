@@ -1,0 +1,14 @@
+.searchBox{padding:10px;}
+.floatRight {float:right; margin-left:10px;}
+.floatLeft {float:left; margin-right:10px;}
+.search{ padding:10px; }
+.search > nav a{ padding:3px 6px;  margin:0 3px;  background-color:#333; color:#fff;  border-radius:4px;  -moz-border-radius:4px; }
+.search article{ padding: 10px 0; overflow:hidden;}
+.search article {border-top:1px solid #333}
+.search .artistResults > section, .search .albumResults > section {padding-top:10px;}
+.search .artistInformation, .search .songInformation {overflow:hidden;}
+.search .songResults section > ul { padding:10px 0;}
+.search .albumResults ul{ padding:10px; display:inline-block; overflow:hidden; }
+.search .more {clear:left;}
+.search .more a {float:right;}
+

@@ -1,0 +1,79 @@
+
+<div class="searchBox">
+    <input type="text" name="searchInput" id="searchInput" value="{{{q}}}"/>    
+    <a id="searchExecute" href="show"> Search Artist </a>
+</div>
+
+
+{{#if data}}
+    {{#data}}
+        <section class="search">
+
+            <article class="artistResults">
+                <header> 
+                    <h2> Artists ({{{artists/totalResults}}}) </h2>
+                </header>
+                <section>
+                    {{#startIndexItem artists}}
+                    <div class="floatRight"> Right Options </div>
+                    <img class="floatLeft" src="{{{artistThumbnailUrl}}}" />
+                    <ul class="artistInformation">
+                            <li> <a href="{{{artistUrl}}}" data-artistId="{{{artistId}}}">{{{artistDisplayName}}}</a> </li>
+                            <li> {{{genre}}} </li>
+                            <li> {{{location}}} </li>
+                            {{#ifOne isOfficial}} <li> Official  </li> {{/ifOne}} 
+                            <li> Matches on {{{matchType}}} </li>
+                    </ul>
+                  {{/startIndexItem}}
+                <div class="more"> <a href=""> More Artist </a> </div>
+                </section>
+            </article>
+
+            <article class="songResults">
+                    <header> 
+                        <h2> Songs ({{{songs/totalResults}}}) </h2>
+                    </header>
+                    <section>
+                       {{#myEach songs}}
+                        <ul>
+                            <li>
+                                <div class="floatRight"> Right options </div>    
+                                <div class="floatLeft"> <a href="#" data-songId="{{{songId}}}">Queue</a> / <a href="#" data-songId="{{{songId}}}">Play</a> </div>
+                                 <ul class="songInformation">
+                                    <li> <a href="{{{songUrl}}}">{{{albumName}}}</a> {{{inMinute songDuration}}}:{{{inSecond songDuration}}} </li>
+                                    <li> by {{{artistDisplayName}}} </li>
+                                </ul>
+                            </li>
+                        </ul>
+                      {{/myEach}}   
+                      <div class="more"> <a href=""> More Songs </a> </div>
+                    </section>
+            </article>
+
+            <article class="albumResults">
+                        <header>
+                            <h2> Albums ({{{albums/totalResults}}})</h2>
+                        </header>
+                        <section>
+                         {{#myEach albums}}   
+                            <ul>
+                                <li> <img src="{{{albumThumbnailUrl}}}"> </li>
+                                <li> {{{albumName}}} </li>
+                                <li> by {{{artistDisplayName}}} </li>
+                           </ul>
+                          {{/myEach}}
+                           <div class="more"> <a href=""> More Albums </a> </div>     
+                        </section>
+            </article>
+            
+        </section>
+
+    {{/data}}
+
+
+{{else}}
+
+    <p> Nothing has been searched </p>
+
+
+{{/if}}
