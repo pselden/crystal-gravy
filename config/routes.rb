@@ -7,12 +7,10 @@ CrystalGravy::Application.routes.draw do
   resources :playlists
   resources :songs
   resources :profiles
+  resources :relationships, :only => [:create]
+  delete "relationships" => "relationships#destroy"
   
   match "profile/edit" => "profiles#edit"
-
-  match "/followings/create" => "followings#create"
-  match "/followings/destroy" => "followings#destroy"
-	
   match "/playlists/create" => "playlists#create"
 	match "/playlists/update" => "playlists#update"
   match "/playlists/:playlistName" => "playlists#show"  
