@@ -90,7 +90,7 @@ var MusicPlayer;
                     playSong(queue.getNextSong());
                 });
 
-                playSong(queue.getCurrentSong());
+                player.jPlayer('setMedia', queue.getCurrentSong());
             },
 
             ended: function() {
