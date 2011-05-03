@@ -2,24 +2,27 @@
 
   $('#edit_profile').submit(function(){
     var $this = $(this);
+        $button = $this.find('button');
+    $button.attr('disabled', 'true');
 
     $.ajax({
       url: $this.attr('action'),
       type: $this.attr('method'),
-      data: "edit_profile="+$this.serialize(),
+      data: $this.serialize(),
       success:  function (data) {
+        $button.removeAttr('disabled');
         if(data.error)
         {
-          for (var i = 0, len = data.errors.length; i < len; i++)
-          {
-            alert(data['errors'][i]);
+          console.log(data.errors);
+          for ( var err in data.errors ) {
+            $("#"+err).before("<p>"+data.errors[err]+"</p>");
           }
         } else {
           alert("succss!");
         }
       }
     });
-  return false;
-});
+    return false;
+  });
 
 })(jQuery);

@@ -7,15 +7,30 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(params[:edit_profile])
+    @profile = current_user.build_profile({:bio => params['bio']})
     if @profile.save
       @result = { :error => false }
-#    else
+    else
       if @profile.errors.any?
         @result = { :error => true, :errors => @profile.errors }
       end
     end
-     respond_to do |format|
+    respond_to do |format|
+      format.json { render :json => @result.to_json }
+    end
+  end
+
+  def update
+    @profile = Profile.find_by_user_id(current_user.id)
+    @profile.attributes = {:bio => params['bio']}
+    if @profile.save
+      @result = { :error => false }
+    else
+      if @profile.errors.any?
+        @result = { :error => true, :errors => @profile.errors }
+      end
+    end
+    respond_to do |format|
       format.json { render :json => @result.to_json }
     end
   end
