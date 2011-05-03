@@ -15,6 +15,7 @@
 class User < ActiveRecord::Base
 	set_table_name "users"
   attr_accessible :provider, :uid, :name, :image, :username
+  has_one :profile, :dependent => :destroy
 	has_many  :user_playlists
 	has_many  :playlists, :through => :user_playlists
 	has_many  :albums
