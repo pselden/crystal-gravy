@@ -65,5 +65,11 @@ class User < ActiveRecord::Base
 	
 	def delete_playlist!(playlist_id)
 		playlists.where("playlist_id = :playlist_id", { :playlist_id => playlist_id}).destroy
-	end
+  end
+
+  def serializable_hash(options)
+    options ||= {}
+    options.merge!(:except => [:created_at, :updated_at])
+    super options
+  end
 end
