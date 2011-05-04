@@ -1,13 +1,14 @@
 (function($) {
 
   $('#edit_profile').submit(function(){
-    var $this = $(this);
-        $button = $this.find('button');
+    var $this = $(this)
+    method = $this.attr('method')
+    $button = $this.find('button');
     $button.attr('disabled', 'true');
 
     $.ajax({
       url: $this.attr('action'),
-      type: $this.attr('method'),
+      type: method,
       data: $this.serialize(),
       success:  function (data) {
         $button.removeAttr('disabled');
@@ -19,6 +20,11 @@
           }
         } else {
           alert("succss!");
+          if(method == "POST")
+          {
+            $this.attr('method', 'PUT')
+            .attr('action', '/profiles/update');
+          }
         }
       }
     });

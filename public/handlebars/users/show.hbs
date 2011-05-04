@@ -12,6 +12,14 @@
   </div>
   <img class='userPic' src="{{user/image}}" />
   <h2>{{user/name}}</h2>
+  <p>
+    {{#if user/profile}} 
+      {{user/profile/bio}}
+      {{else}}
+      No profile information
+    {{/if}}
+    <a href="/profile/edit">Edit</a>
+  </p>
 </header>
 
 <section id="rightRail">
