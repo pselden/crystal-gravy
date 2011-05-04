@@ -72,7 +72,6 @@ button[disabled] { cursor: default; background: #DDD; color: #999; }
 .grid { margin: -10px -10px 0 0; }
 .grid > li { float: left; margin: 10px 10px 0 0; }
 
-#header { display: none; }
 /* Header */
 #header { padding: 10px 0; position: fixed; top: 0; width: 100%; line-height: 18px; background: #DF4747; color: #FFF;
 	background-image: -moz-linear-gradient(#DF4747, #C73B3B); background-image: -webkit-linear-gradient(#DF4747, #C73B3B);
