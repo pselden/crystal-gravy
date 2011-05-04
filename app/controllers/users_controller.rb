@@ -36,4 +36,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @user = User.find_by_id(params[:id], :include => [:following])
+    @title = @user.name
+    respond_with(@user.as_json(:include => [:following]))
+  end
+  
+  def followers
+    @user = User.find_by_id(params[:id], :include => [:followers])
+    @title = @user.name
+    respond_with(@user.as_json(:include => [:followers]))
+  end
+  
 end
