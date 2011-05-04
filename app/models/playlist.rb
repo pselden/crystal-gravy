@@ -1,12 +1,15 @@
 # == Schema Information
-# Schema version: 20110419175921
+# Schema version: 20110504050645
 #
 # Table name: playlists
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer         not null, primary key
+#  titlename       :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  descriptiontext :string(255)
+#  imageuri        :string(255)
+#  mediacountvalue :integer
 #
 
 class Playlist < ActiveRecord::Base

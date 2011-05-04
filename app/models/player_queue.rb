@@ -1,17 +1,16 @@
 # == Schema Information
 # Schema version: 20110504050645
 #
-# Table name: profile
+# Table name: player_queue
 #
 #  id         :integer         not null, primary key
 #  user_id    :integer
-#  bio        :string(255)
+#  song_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Profile < ActiveRecord::Base
+class PlayerQueue < ActiveRecord::Base
   belongs_to :user
-
-  validates :bio, :length => { :within => 1..140 }
+	belongs_to :song
 end
