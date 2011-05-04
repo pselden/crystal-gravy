@@ -2,12 +2,12 @@ class ProfilesController < ApplicationController
 
   def edit
     append_javascript('edit_profile')
-    @profile = Profile.find_by_user_id(current_user.id, :select => "bio")
+    @profile = Profile.find_by_user_id(current_user.id, :select => "bio, website")
     respond_with(@profile)
   end
 
   def create
-    @profile = current_user.build_profile({:bio => params['bio']})
+    @profile = current_user.build_profile({:bio => params['bio'], :website => params['website']})
     if @profile.save
       @result = { :error => false }
     else
@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by_user_id(current_user.id)
-    @profile.attributes = {:bio => params['bio']}
+    @profile.attributes = {:bio => params['bio'], :website => params['website']}
     if @profile.save
       @result = { :error => false }
     else

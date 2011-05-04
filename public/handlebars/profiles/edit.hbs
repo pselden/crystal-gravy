@@ -4,5 +4,9 @@
     <label for="bio">Bio</label>
     <textarea name="bio" id="bio">{{#if profile}}{{profile/bio}}{{/if}}</textarea>
   </div>
+  <div>
+    <label for="website">Website URL</label>
+    <input type="text" id="website" name="website" {{#if profile}}value="{{profile/website}}"{{/if}} />
+  </div>
   <button type='submit'>Save</button>
 </form>
