@@ -4,8 +4,14 @@ var MusicPlayer = MusicPlayer || {};
     MusicPlayer.Queue = function() {
         var songQueue = [], currentSongIndex = 0;
 
-        this.addSongToQueue = function(song) {
+        // adds a song to the end of the queue
+        this.queueSong = function(song) {
             songQueue.push(song);
+        };
+
+        // adds a song to the next position in the queue
+        this.queueNextSong = function(song){
+            songQueue.splice(currentSongIndex+1, 0, song);
         };
 
         this.getNextSong = function() {

@@ -13,11 +13,11 @@ var MusicPlayer;
             range: 'min',
             animate: true,
 
-            start: function(){
-              progressBar.data("sliderEnabled", false);
+            start: function() {
+                progressBar.data("sliderEnabled", false);
             },
 
-            stop: function(event, ui){
+            stop: function(event, ui) {
                 player.jPlayer("playHead", ui.value);
                 progressBar.data("sliderEnabled", true);
             }
@@ -30,16 +30,20 @@ var MusicPlayer;
             animate: true,
 
             slide: function(event, ui) {
-               player.jPlayer("volume", ui.value/100);
+                player.jPlayer("volume", ui.value / 100);
             }
         });
 
-        function queueSong(song){
-           queue.addSongToQueue(song);
+        function queueSong(song) {
+            queue.queueSong(song);
+        }
+
+        function queueNextSong(song) {
+            queue.queueNextSong(song);
         }
 
         // sets the song of the player and plays it
-        function playSong(song){
+        function playSong(song) {
             player.jPlayer('setMedia', song);
             player.jPlayer('play');
         }
@@ -74,8 +78,8 @@ var MusicPlayer;
             }
         ];
 
-        $.each(songs, function(i, song){
-          queueSong(song);
+        $.each(songs, function(i, song) {
+            queueSong(song);
         });
 
         playerInterface.append(player);
@@ -101,8 +105,8 @@ var MusicPlayer;
                 player.jPlayer("pauseOthers");
             },
 
-            timeupdate: function(event){
-                if(progressBar.data('sliderEnabled')){
+            timeupdate: function(event) {
+                if (progressBar.data('sliderEnabled')) {
                     var currentPercent = event.jPlayer.status.currentPercentAbsolute;
                     progressBar.slider('value', currentPercent);
                 }
@@ -113,8 +117,17 @@ var MusicPlayer;
             cssSelectorAncestor: interfaceSelector
         });
 
-        $.comm.listen('musicplayer.queuesong', function(song){
+        $.comm.listen('musicplayer.queuesong', function(song) {
             queueSong(song);
+        });
+
+        $.comm.listen('musicplayer.playsong', function(song) {
+            queueNextSong(song);
+            playSong(queue.getNextSong());
+        });
+
+        $.comm.listen('musicplayer.playsongnext', function(song) {
+            queueNextSong(song);
         });
     };
 })();
